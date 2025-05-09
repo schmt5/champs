@@ -1,4 +1,5 @@
 import React from 'react';
+import { cn } from '../utils/cn';
 
 const ToggleButton = ({ 
   text, 
@@ -9,11 +10,12 @@ const ToggleButton = ({
   return (
     <div
       onClick={() => !isDisabled && onClick(text)}
-      className={`
-        p-4 rounded-lg shadow-md text-center cursor-pointer
-        ${isSelected ? "bg-primary-400 text-white" : "bg-white text-gray-800"}
-        ${isDisabled ? "opacity-50 cursor-not-allowed" : ""}
-      `}
+      className={cn(
+        "p-4 rounded-lg shadow-md text-center cursor-pointer",
+        isSelected && "bg-primary-400 text-white",
+        !isSelected && "bg-white text-gray-800",
+        isDisabled && "opacity-50 cursor-not-allowed"
+      )}
       aria-selected={isSelected}
       aria-disabled={isDisabled}
       role="option"

@@ -1,7 +1,10 @@
 import React, { useState, useMemo, useCallback } from "react";
 import ToggleButton from "./components/ToggleButton";
+import HomeScreen from "./components/HomeScreen";
 
 function App() {
+  const [isGameStarted, setIsGameStarted] = useState(false);
+
   // Adjektive-Liste
   const adjectives = useMemo(
     () => [
@@ -56,6 +59,15 @@ function App() {
   const handleReset = useCallback(() => {
     setSelectedAdjectives([]);
   }, []);
+
+  // Handler zum Starten des Spiels
+  const handleStartGame = useCallback(() => {
+    setIsGameStarted(true);
+  }, []);
+
+  if (!isGameStarted) {
+    return <HomeScreen onStartGame={handleStartGame} />;
+  }
 
   return (
     <div className="min-h-screen">

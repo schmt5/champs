@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useCallback } from "react";
+import ToggleButton from "./components/ToggleButton";
 
 function App() {
   // Adjektive-Liste
@@ -83,47 +84,18 @@ function App() {
               </div>
             ))}
           </div>
-
-          {/* Reset-Button (nur anzeigen, wenn mindestens ein Adjektiv ausgewählt ist) */}
-          {selectedAdjectives.length > 0 && (
-            <div className="flex justify-center mb-6">
-              <button
-                onClick={handleReset}
-                className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-full transition-colors duration-300"
-              >
-                Zurücksetzen
-              </button>
-            </div>
-          )}
         </div>
 
         {/* Adjektiv-Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
           {adjectiveStatus.map((adjective, index) => (
-            <div
+            <ToggleButton
               key={index}
-              onClick={() =>
-                !adjective.isDisabled && handleSelectAdjective(adjective.text)
-              }
-              className={`
-                p-4 rounded-lg shadow-md text-center cursor-pointer transform transition-all duration-300
-                ${
-                  adjective.isSelected
-                    ? "bg-primary-400 text-white scale-105"
-                    : "bg-white text-gray-800 hover:bg-yellow-50"
-                }
-                ${
-                  adjective.isDisabled
-                    ? "opacity-50 cursor-not-allowed"
-                    : "hover:scale-105"
-                }
-              `}
-              aria-selected={adjective.isSelected}
-              aria-disabled={adjective.isDisabled}
-              role="option"
-            >
-              {adjective.text}
-            </div>
+              text={adjective.text}
+              isSelected={adjective.isSelected}
+              isDisabled={adjective.isDisabled}
+              onClick={handleSelectAdjective}
+            />
           ))}
         </div>
 

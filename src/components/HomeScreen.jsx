@@ -1,28 +1,31 @@
 import React, { useEffect, useRef } from 'react';
 import { cn } from '../utils/cn';
-import { animate, createScope, stagger } from 'animejs';
+import { animate, createScope, stagger, utils } from 'animejs';
 
 const HomeScreen = ({ onStartGame }) => {
     const root = useRef(null);
     const scope = useRef(null);
 
     useEffect(() => {
-        // Get all spans
+        const cursor = document.querySelector('.cmp-cursor')
         const spans = document.querySelectorAll('.cmp-title-spans');
 
         scope.current = createScope({ root }).add(self => {
-            // Create a "wave" effect that moves through the text
-            animate(spans, {
-                opacity: [0.2, 1, 0.2],
-                translateY: [0, -10, 0], // Slight up and down movement
-                scale: [0.95, 1.05, 0.95], // Subtle size pulsing
-                duration: 2500,
-                delay: (el, i) => i * 70, // Wave effect moving through text
-                easing: 'easeInOutSine',
+            animate(cursor, {
+                opacity: [0, 1],
+                duration: 2000,
                 loop: true,
-                endDelay: (el, i) => 2000 - (i * 70), // Creates continuous wave
+                ease: 'steps(1)'
+            })
+
+            animate(spans, {
+                opacity: [0, 1],
+                duration: 160,
+                delay: stagger(utils.random(100, 160)),
+                easing: 'easeInOutQuad',
             });
-        });
+
+        })
 
         // Properly cleanup all anime.js instances declared inside the scope
         return () => scope.current.revert();
@@ -30,9 +33,9 @@ const HomeScreen = ({ onStartGame }) => {
 
 
     const sk = "SwissSkills"
-    const champions = "Champions"
+    const champions = "Champions."
     const skSpans = sk.split('').map((char, index) => (
-        <span key={index} className="cmp-title-spans inline-block">
+        <span key={index} className="no-cmp-title-spans inline-block">
             {char}
         </span>
     ));
@@ -44,13 +47,14 @@ const HomeScreen = ({ onStartGame }) => {
     ));
 
     return (
-        <div ref={root} className="min-h-screen grid grid-cols-3 place-content-center">
-            <div className="col-span-2 text-center space-y-8 max-w-3xl px-4">
-                <h1 className="font-display text-5xl font-medium tracking-tight text-balance text-gray-500 sm:text-8xl mb-2">
+        <div ref={root} className="min-h-screen mx-auto max-w-5xl grid grid-cols-3 place-content-center">
+            <div className="col-span-2 space-y-8 max-w-3xl px-4">
+                <h1 className="font-display text-5xl font-medium tracking-tight text-balance text-gray-600 sm:text-8xl mb-1">
                     {skSpans}
                 </h1>
-                <h1 className="font-display text-5xl font-medium tracking-tight text-balance text-primary-500 sm:text-8xl">
+                <h1 className="relative font-display text-5xl font-medium tracking-tight text-balance text-primary-500 sm:text-8xl">
                     {championsSpans}
+                    <span className="cmp-cursor inline-block w-1 bg-primary-500 absolute top-1 bottom-4 left-0" />
                 </h1>
                 <p className="mt-12 text-gray-600 text-3xl">
                     Welcher Champion bist du?

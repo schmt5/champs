@@ -12,17 +12,21 @@ const HomeScreen = ({ onStartGame }) => {
 
         scope.current = createScope({ root }).add(self => {
             animate(cursor, {
-                opacity: [0, 1],
-                duration: 2000,
+                opacity: [0, 1, 0, 1, 0, 1, 0, 1, 0],
+                duration: 2800,
+                ease: 'steps(1)',
                 loop: true,
-                ease: 'steps(1)'
+                loopDelay: 6000,
             })
 
             animate(spans, {
                 opacity: [0, 1],
-                duration: 160,
-                delay: stagger(utils.random(100, 160)),
+                duration: 180,
+                delay: stagger(utils.random(100, 160), { start: 3000 }),
                 easing: 'easeInOutQuad',
+                loop: true,
+                alternate: true,
+                loopDelay: 3000,
             });
 
         })

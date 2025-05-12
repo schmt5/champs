@@ -1,14 +1,42 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Mona Sans';
+  font-weight: 200 900;
+  font-display: block;
+  font-style: normal;
+  font-stretch: 75% 125%;
+  src: url('./fonts/Mona-Sans.var.woff2') format('woff2');
+}
+
 @theme {
-  --color-primary-50: oklch(97.21% 0.0265 191.66deg); /* #fff2ef */
-  --color-primary-100: oklch(88.21% 0.0483 27.04deg); /* #ffcfc3 */
-  --color-primary-200: oklch(78.54% 0.1419 19.93deg); /* #ffa996 */
-  --color-primary-300: oklch(67.89% 0.2623 17.83deg); /* #fe7e64 */
-  --color-primary-400: oklch(55.2% 0.4417 17.47deg); /* #fe431b */
-  --color-primary-500: oklch(47.65% 0.4258 17.72deg); /* #dc2e01 */
-  --color-primary-600: oklch(41.44% 0.3724 17.71deg); /* #b72400 */
-  --color-primary-700: oklch(33.31% 0.2997 17.68deg); /* #881800 */
-  --color-primary-800: oklch(24.79% 0.2248 17.48deg); /* #5a0c00 */
-  --color-primary-900: oklch(17.05% 0.1538 17.61deg); /* #330400 */
+  --color-primary-50: oklch(97.05% 0.015 33.07deg);
+  /* #fff2ef */
+  --color-primary-100: oklch(88.21% 0.0483 27.04deg);
+  /* #ffcfc3 */
+  --color-primary-200: oklch(78.54% 0.1419 19.93deg);
+  /* #ffa996 */
+  --color-primary-300: oklch(67.89% 0.2623 17.83deg);
+  /* #fe7e64 */
+  --color-primary-400: oklch(55.2% 0.4417 17.47deg);
+  /* #fe431b */
+  --color-primary-500: oklch(47.65% 0.4258 17.72deg);
+  /* #dc2e01 */
+  --color-primary-600: oklch(41.44% 0.3724 17.71deg);
+  /* #b72400 */
+  --color-primary-700: oklch(33.31% 0.2997 17.68deg);
+  /* #881800 */
+  --color-primary-800: oklch(24.79% 0.2248 17.48deg);
+  /* #5a0c00 */
+  --color-primary-900: oklch(17.05% 0.1538 17.61deg);
+  /* #330400 */
+}
+
+/* Apply globally */
+:root {
+  --font-family-base: 'Mona Sans', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-family-base);
 }

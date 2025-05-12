@@ -1,24 +1,10 @@
 import React, { useState, useMemo, useCallback } from "react";
 import ToggleButton from "./components/ToggleButton";
 import HomeScreen from "./components/HomeScreen";
+import { adjectives } from "./db/data";
 
 function App() {
   const [isGameStarted, setIsGameStarted] = useState(false);
-
-  // Adjektive-Liste
-  const adjectives = useMemo(
-    () => [
-      "kreativ",
-      "analytisch",
-      "freundlich",
-      "ehrgeizig",
-      "geduldig",
-      "spontan",
-      "loyal",
-      "humorvoll",
-    ],
-    []
-  );
 
   // State für ausgewählte Adjektive (max. 2)
   const [selectedAdjectives, setSelectedAdjectives] = useState([]);
@@ -86,11 +72,10 @@ function App() {
             {[0, 1].map((index) => (
               <div
                 key={`slot-${index}`}
-                className={`w-32 h-12 rounded-full flex items-center justify-center shadow-md transition-all duration-300 ${
-                  selectedAdjectives[index]
+                className={`w-32 h-12 rounded-full flex items-center justify-center shadow-md transition-all duration-300 ${selectedAdjectives[index]
                     ? "bg-primary-400 text-white"
                     : "bg-gray-100 text-gray-400"
-                }`}
+                  }`}
               >
                 {selectedAdjectives[index] || "• • •"}
               </div>

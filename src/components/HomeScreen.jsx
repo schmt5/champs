@@ -1,10 +1,25 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { cn } from '../utils/cn';
-import { animate, createScope, stagger, utils } from 'animejs';
+import { animate, createScope, createTimeline, stagger, utils } from 'animejs';
+import sleep from '../utils/sleep';
+import { ImageHero } from './ImageHero';
+
 
 const HomeScreen = ({ onStartGame }) => {
     const root = useRef(null);
     const scope = useRef(null);
+    const startGameAnimation = useRef(null);
+    const [loading, setLoading] = useState(false);
+
+    const handleStartGame = useCallback(async () => {
+        setLoading(true)
+        if (startGameAnimation.current) {
+            startGameAnimation.current.play()
+        }
+
+        await sleep(4000)
+        onStartGame()
+    }, [onStartGame])
 
     useEffect(() => {
         const cursor = document.querySelector('.cmp-cursor')
@@ -12,8 +27,8 @@ const HomeScreen = ({ onStartGame }) => {
 
         scope.current = createScope({ root }).add(self => {
             animate(cursor, {
-                opacity: [0, 1, 0, 1, 0, 1, 0, 1, 0],
-                duration: 2800,
+                opacity: [0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0],
+                duration: 3000,
                 ease: 'steps(1)',
                 loop: true,
                 loopDelay: 6000,
@@ -28,8 +43,28 @@ const HomeScreen = ({ onStartGame }) => {
                 alternate: true,
                 loopDelay: 3000,
             });
-
         })
+
+        const startSpinner = utils.$('.cmp-start-spinner')
+
+        const timeline = createTimeline({ autoplay: false });
+
+        timeline.add(startSpinner, {
+            x: 128,
+            width: 64,
+            height: 64,
+            easing: 'easeInOutQuad',
+            duration: 500
+        }).add(startSpinner, {
+            rotate: 90,
+            duration: 500,
+            loop: true,
+            loopDelay: 50,
+            easing: 'easeInOutQuad'
+        });
+
+        startGameAnimation.current = timeline;
+
 
         // Properly cleanup all anime.js instances declared inside the scope
         return () => scope.current.revert();
@@ -50,9 +85,42 @@ const HomeScreen = ({ onStartGame }) => {
         </span>
     ));
 
+    const squares = Array.from({ length: 64 }).map((_, index) => (
+        <span key={index} className="cmp-bg-squares inline-block w-3 h-3 bg-gray-100 rounded-sm" />
+    ));
+
+
+
     return (
         <div ref={root} className="min-h-screen mx-auto max-w-5xl grid grid-cols-3 place-content-center">
+            <div className='-z-10 fixed top-4 -bottom-96 right-0 left-1/4 grid' style={{ gridTemplateColumns: 'repeat(8, 1fr)', transform: 'rotate(45deg)' }}>
+                {squares}
+            </div>
+
+
             <div className="col-span-2 space-y-8 max-w-3xl px-4">
+                <div className='flex gap-4'>
+                    <div className='cmp-profile-image w-24 h-24 rounded-xl overflow-hidden'>
+                        <img src="https://worldskills-videos.s3.eu-central-1.amazonaws.com/profile-images/1726635015712img_200x200.png" className="h-full w-full object-cover"></img>
+                    </div>
+                    <div className='cmp-profile-image w-24 h-24 rounded-xl overflow-hidden'>
+                        <img src="https://worldskills-videos.s3.eu-central-1.amazonaws.com/profile-images/1726635015712img_200x200.png" className="h-full w-full object-cover"></img>
+                    </div>
+                    <div className='cmp-profile-image w-24 h-24 rounded-xl overflow-hidden'>
+                        <img src="https://worldskills-videos.s3.eu-central-1.amazonaws.com/profile-images/1726635015712img_200x200.png" className="h-full w-full object-cover"></img>
+                    </div>
+                    <div className='cmp-profile-image w-24 h-24 rounded-xl overflow-hidden'>
+                        <img src="https://worldskills-videos.s3.eu-central-1.amazonaws.com/profile-images/1726635015712img_200x200.png" className="h-full w-full object-cover"></img>
+                    </div>
+                    <div className='cmp-profile-image w-24 h-24 rounded-xl overflow-hidden'>
+                        <img src="https://worldskills-videos.s3.eu-central-1.amazonaws.com/profile-images/1726635015712img_200x200.png" className="h-full w-full object-cover"></img>
+                    </div>
+                    <div className='cmp-profile-image w-24 h-24 rounded-xl overflow-hidden'>
+                        <img src="https://worldskills-videos.s3.eu-central-1.amazonaws.com/profile-images/1726635015712img_200x200.png" className="h-full w-full object-cover"></img>
+                    </div>
+                </div>
+
+
                 <h1 className="font-display text-5xl font-medium tracking-tight text-balance text-gray-600 sm:text-8xl mb-1">
                     {skSpans}
                 </h1>
@@ -64,26 +132,34 @@ const HomeScreen = ({ onStartGame }) => {
                     Welcher Champion bist du?
                 </p>
 
-                <button
-                    onClick={onStartGame}
-                    className="cursor-pointer relative inline-block font-medium group py-4 px-12"
+                {!loading && (<button
+                    onClick={handleStartGame}
+                    className="cursor-pointer relative inline-block font-medium group py-4 px-12 w-64 m-0"
                 >
                     <span
-                        className="absolute rounded inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-primary-400 group-hover:-translate-x-0 group-hover:-translate-y-0"
+                        className={cn("absolute rounded inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-primary-500 group-hover:-translate-x-0 group-hover:-translate-y-0"
+                        )}
                     ></span>
                     <span
-                        className="absolute rounded inset-0 w-full h-full bg-white border border-primary-400 group-hover:bg-primary-50"
+                        className={cn("absolute inset-0 w-full h-full bg-white border-2 border-primary-500 rounded")}
                     ></span>
-                    <span className="relative text-primary-400 text-2xl font-semibold">Spiel starten</span>
-                </button>
+                    <span className="relative text-primary-500 text-2xl font-semibold">
+                        Spiel starten
+                    </span>
+
+                </button>)}
+
+
+                <div className={cn("cmp-start-spinner w-64 h-16 bg-white rounded border-2 border-primary-500", {
+                    "hidden": !loading
+                })} />
+            </div>
+            <div className=''>
+                <ImageHero src="src/assets/champion.jpg" alt='Portrait of a champion' />
             </div>
 
-            <div className='w-36 h-36 rounded-xl overflow-hidden'>
-                <img src="https://worldskills-videos.s3.eu-central-1.amazonaws.com/profile-images/1726635015712img_200x200.png" class="h-full w-full object-cover"></img>
-
-            </div>
         </div>
     );
 };
 
-export default HomeScreen; 
+export default HomeScreen;

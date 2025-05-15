@@ -56,35 +56,41 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-8">
-        {/* Header mit Titel und Beschreibung */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-primary-500 text-center mb-4">
-            Wähle deine Adjektive
-          </h1>
-          <p className="text-center text-gray-600 mb-6">
-            Wähle bis zu 2 Adjektive aus, die zu deiner Persönlichkeit passen
-          </p>
+    <div className="min-h-screen bg-primary-500 flex flex-col">
 
-          {/* Anzeige der ausgewählten Adjektive */}
-          <div className="flex justify-center gap-3 mb-6">
-            {[0, 1].map((index) => (
-              <div
-                key={`slot-${index}`}
-                className={`w-32 h-12 rounded-full flex items-center justify-center shadow-md transition-all duration-300 ${selectedAdjectives[index]
-                    ? "bg-primary-400 text-white"
-                    : "bg-gray-100 text-gray-400"
-                  }`}
-              >
-                {selectedAdjectives[index] || "• • •"}
-              </div>
-            ))}
+      {/* Header mit Titel und Beschreibung */}
+      <div className="h-80 mx-auto max-w-5xl px-4 py-8">
+        <h1 className="font-display text-4xl text-center font-medium tracking-tight text-balance text-primary-50">
+          Champions
+        </h1>
+
+        <div className="my-4">
+          <div className='cmp-profile-image w-16 h-16 rounded-full border-2 border-primary-50 overflow-hidden'>
+            <img src="https://worldskills-videos.s3.eu-central-1.amazonaws.com/profile-images/1726635015712img_200x200.png" className="h-full w-full object-cover"></img>
           </div>
         </div>
+      </div>
+
+
+      <div className="bg-white rounded-t-4xl flex-1 py-8">
+        {/* Anzeige der ausgewählten Adjektive */}
+        <div className="flex justify-center gap-3 mb-6">
+          {[0, 1].map((index) => (
+            <div
+              key={`slot-${index}`}
+              className={`w-32 h-12 rounded-full flex items-center justify-center shadow-md transition-all duration-300 ${selectedAdjectives[index]
+                ? "bg-primary-400 text-white"
+                : "bg-gray-100 text-gray-400"
+                }`}
+            >
+              {selectedAdjectives[index] || "• • •"}
+            </div>
+          ))}
+        </div>
+
 
         {/* Adjektiv-Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+        <div className="mt-12 grid grid-cols-2 gap-4 max-w-2xl mx-auto">
           {adjectiveStatus.map((adjective, index) => (
             <ToggleButton
               key={index}
@@ -106,7 +112,7 @@ function App() {
           </div>
         )}
       </div>
-    </div>
+    </div >
   );
 }
 

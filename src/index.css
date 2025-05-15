@@ -10,17 +10,17 @@
 }
 
 @theme {
-  --color-primary-50: oklch(97.05% 0.015 33.07deg);
+  --color-primary-50: rgba(230, 0, 0, 0.02);
   /* #fff2ef */
-  --color-primary-100: oklch(88.21% 0.0483 27.04deg);
+  --color-primary-100: #fce5e5;
   /* #ffcfc3 */
-  --color-primary-200: oklch(78.54% 0.1419 19.93deg);
+  --color-primary-200: #f8b2b2;
   /* #ffa996 */
-  --color-primary-300: oklch(67.89% 0.2623 17.83deg);
+  --color-primary-300: #f37080;
   /* #fe7e64 */
-  --color-primary-400: oklch(55.2% 0.4417 17.47deg);
+  --color-primary-400: #ed4d4d;
   /* #fe431b */
-  --color-primary-500: oklch(47.65% 0.4258 17.72deg);
+  --color-primary-500: #e60000;
   /* #dc2e01 */
   --color-primary-600: oklch(41.44% 0.3724 17.71deg);
   /* #b72400 */
@@ -31,6 +31,10 @@
   --color-primary-900: oklch(17.05% 0.1538 17.61deg);
   /* #330400 */
 }
+
+
+
+
 
 /* Apply globally */
 :root {

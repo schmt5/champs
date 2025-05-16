@@ -5,7 +5,7 @@ import { adjectives } from "./db/data";
 import { ExplainScreen } from "./components/ExplainScreen";
 
 function App() {
-  const [status, setStatus] = useState("explain");
+  const [status, setStatus] = useState("home");
 
   // State für ausgewählte Adjektive (max. 2)
   const [selectedAdjectives, setSelectedAdjectives] = useState([]);

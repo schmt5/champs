@@ -1,14 +1,5 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: 'Mona Sans';
-  font-weight: 200 900;
-  font-display: block;
-  font-style: normal;
-  font-stretch: 75% 125%;
-  src: url('./fonts/Mona-Sans.var.woff2') format('woff2');
-}
-
 @theme {
   --color-primary-50: rgba(230, 0, 0, 0.05);
   /* #fff2ef */
@@ -38,11 +29,20 @@
 
 /* Apply globally */
 :root {
-  --font-family-base: 'Mona Sans', system-ui, sans-serif;
+  --font-family-display: 'Work Sans', sans-serif;
+  --font-family-base: 'Outfit', sans-serif;
 }
 
 body {
   font-family: var(--font-family-base);
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.font-display {
+  font-family: var(--font-family-display);
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 progress {

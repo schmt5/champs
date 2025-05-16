@@ -5,7 +5,7 @@ import sleep from '../utils/sleep';
 import { ImageHero } from './ImageHero';
 
 
-const HomeScreen = ({ onStartGame }) => {
+const HomeScreen = ({ onNextPage }) => {
     const root = useRef(null);
     const scope = useRef(null);
     const startGameAnimation = useRef(null);
@@ -17,9 +17,9 @@ const HomeScreen = ({ onStartGame }) => {
             startGameAnimation.current.play()
         }
 
-        await sleep(4000)
-        onStartGame()
-    }, [onStartGame])
+        await sleep(2000)
+        onNextPage()
+    }, [onNextPage])
 
     useEffect(() => {
         const cursor = document.querySelector('.cmp-cursor')
@@ -99,28 +99,6 @@ const HomeScreen = ({ onStartGame }) => {
 
 
             <div className="col-span-2 space-y-8 max-w-3xl px-4">
-                <div className='flex gap-4'>
-                    <div className='cmp-profile-image w-24 h-24 rounded-xl overflow-hidden'>
-                        <img src="https://worldskills-videos.s3.eu-central-1.amazonaws.com/profile-images/1726635015712img_200x200.png" className="h-full w-full object-cover"></img>
-                    </div>
-                    <div className='cmp-profile-image w-24 h-24 rounded-xl overflow-hidden'>
-                        <img src="https://worldskills-videos.s3.eu-central-1.amazonaws.com/profile-images/1726635015712img_200x200.png" className="h-full w-full object-cover"></img>
-                    </div>
-                    <div className='cmp-profile-image w-24 h-24 rounded-xl overflow-hidden'>
-                        <img src="https://worldskills-videos.s3.eu-central-1.amazonaws.com/profile-images/1726635015712img_200x200.png" className="h-full w-full object-cover"></img>
-                    </div>
-                    <div className='cmp-profile-image w-24 h-24 rounded-xl overflow-hidden'>
-                        <img src="https://worldskills-videos.s3.eu-central-1.amazonaws.com/profile-images/1726635015712img_200x200.png" className="h-full w-full object-cover"></img>
-                    </div>
-                    <div className='cmp-profile-image w-24 h-24 rounded-xl overflow-hidden'>
-                        <img src="https://worldskills-videos.s3.eu-central-1.amazonaws.com/profile-images/1726635015712img_200x200.png" className="h-full w-full object-cover"></img>
-                    </div>
-                    <div className='cmp-profile-image w-24 h-24 rounded-xl overflow-hidden'>
-                        <img src="https://worldskills-videos.s3.eu-central-1.amazonaws.com/profile-images/1726635015712img_200x200.png" className="h-full w-full object-cover"></img>
-                    </div>
-                </div>
-
-
                 <h1 className="font-display text-5xl font-medium tracking-tight text-balance text-gray-600 sm:text-8xl mb-1">
                     {skSpans}
                 </h1>

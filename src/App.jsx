@@ -2,9 +2,10 @@ import React, { useState, useMemo, useCallback } from "react";
 import ToggleButton from "./components/ToggleButton";
 import HomeScreen from "./components/HomeScreen";
 import { adjectives } from "./db/data";
+import { ExplainScreen } from "./components/ExplainScreen";
 
 function App() {
-  const [isGameStarted, setIsGameStarted] = useState(false);
+  const [status, setStatus] = useState("explain");
 
   // State für ausgewählte Adjektive (max. 2)
   const [selectedAdjectives, setSelectedAdjectives] = useState([]);
@@ -46,13 +47,22 @@ function App() {
     setSelectedAdjectives([]);
   }, []);
 
-  // Handler zum Starten des Spiels
-  const handleStartGame = useCallback(() => {
-    setIsGameStarted(true);
+
+  const handleExplain = useCallback(() => {
+    setStatus("explain");
   }, []);
 
-  if (!isGameStarted) {
-    return <HomeScreen onStartGame={handleStartGame} />;
+  // Handler zum Starten des Spiels
+  const handleStartGame = useCallback(() => {
+    setStatus("game");
+  }, []);
+
+  if (status === "home") {
+    return <HomeScreen onNextPage={handleExplain} />;
+  }
+
+  if (status === "explain") {
+    return <ExplainScreen onNextPage={handleStartGame} />;
   }
 
   return (
@@ -60,19 +70,19 @@ function App() {
 
       {/* Header mit Titel und Beschreibung */}
       <div className="h-80 mx-auto max-w-5xl px-4 py-8">
-        <h1 className="font-display text-4xl text-center font-medium tracking-tight text-balance text-primary-50">
+        <h1 className="font-display text-5xl text-center font-medium tracking-tight text-balance text-white">
           Champions
         </h1>
 
         <div className="my-4">
-          <div className='cmp-profile-image w-16 h-16 rounded-full border-2 border-primary-50 overflow-hidden'>
-            <img src="https://worldskills-videos.s3.eu-central-1.amazonaws.com/profile-images/1726635015712img_200x200.png" className="h-full w-full object-cover"></img>
+          <div className='cmp-profile-image w-20 h-20 rounded-full shadow-xl border-2 border-white overflow-hidden'>
+            <img src="src/assets/champion-1-quad.jpg" className="h-full w-full object-cover"></img>
           </div>
         </div>
       </div>
 
 
-      <div className="bg-white rounded-t-4xl flex-1 py-8">
+      <div className="bg-white rounded-t-4xl flex-1 py-8 shadow-xl">
         {/* Anzeige der ausgewählten Adjektive */}
         <div className="flex justify-center gap-3 mb-6">
           {[0, 1].map((index) => (

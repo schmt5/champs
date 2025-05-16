@@ -10,7 +10,7 @@
 }
 
 @theme {
-  --color-primary-50: rgba(230, 0, 0, 0.02);
+  --color-primary-50: rgba(230, 0, 0, 0.05);
   /* #fff2ef */
   --color-primary-100: #fce5e5;
   /* #ffcfc3 */
@@ -43,4 +43,23 @@
 
 body {
   font-family: var(--font-family-base);
+}
+
+progress {
+  @apply w-xl h-2 rounded-full overflow-hidden appearance-none;
+}
+
+/* For Firefox */
+progress::-moz-progress-bar {
+  @apply bg-primary-500;
+}
+
+/* For Chrome/Safari */
+progress::-webkit-progress-value {
+  @apply bg-primary-500 rounded-full;
+}
+
+/* Background for Chrome/Safari */
+progress::-webkit-progress-bar {
+  @apply bg-primary-100 rounded-full;
 }

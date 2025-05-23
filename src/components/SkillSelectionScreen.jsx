@@ -45,11 +45,11 @@ export function SkillSelectionScreen() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-primary-50">
       {/* Header */}
 
       {selectedAdjectives.length < 2 ? (
-        <div className="h-[360px] mx-auto bg-primary-50 py-12 w-full">
+        <div className="h-[360px] mx-auto py-12 w-full ">
           <h1 className="font-display text-5xl text-center font-medium tracking-tight text-balance text-gray-800">
             {selectedAdjectives.length === 0 ? (
               <span>
@@ -63,7 +63,7 @@ export function SkillSelectionScreen() {
           </h1>
         </div>
       ) : (
-        <div className="h-[360px] mx-auto grid place-content-center bg-primary-50 w-full py-4">
+        <div className="h-[360px] mx-auto grid place-content-center w-full py-4">
           <div className="rounded-4xl border-2 border-primary-200 shadow-xl relative aspect-video overflow-hidden">
             <img
               height={324}
@@ -83,7 +83,7 @@ export function SkillSelectionScreen() {
         </div>
       )}
 
-      <div className="bg-white rounded-t-4xl flex-1 py-8 shadow-xl">
+      <div className="bg-white rounded-t-4xl border-t-2 border-primary-100 flex-1 py-8 shadow-xl">
         {/* Adjektiv-Grid */}
         <div className="mt-12 grid grid-cols-2 gap-4 max-w-2xl mx-auto">
           {adjectiveStatus.map((adjective, index) => (

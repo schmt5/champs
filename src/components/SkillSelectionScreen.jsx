@@ -48,7 +48,7 @@ export function SkillSelectionScreen() {
       {/* Header */}
 
       {selectedAdjectives.length < 2 ? (
-        <div className="h-[356px] mx-auto max-w-5xl px-4 py-8">
+        <div className="h-[360px] mx-auto bg-primary-50 py-12">
           <h1 className="font-display text-5xl text-center font-medium tracking-tight text-balance text-gray-800">
             {selectedAdjectives.length === 0 ? (
               <span>
@@ -62,14 +62,13 @@ export function SkillSelectionScreen() {
           </h1>
         </div>
       ) : (
-        <div className="max-w-5xl mx-auto grid place-content-center py-4">
-          <div className="rounded-4xl relative aspect-video overflow-hidden">
+        <div className="h-[360px] mx-auto grid place-content-center bg-primary-50 w-full py-4">
+          <div className="rounded-4xl border-2 border-primary-200 shadow-xl relative aspect-video overflow-hidden">
             <img
               height={324}
               width={576}
               src="src/assets/champion-1-landscape.jpg"
               alt="Champ"
-              className="rounded-t-4xl"
             />
             <div className="p-4 absolute bottom-0 left-0 right-0 rounded-xs bg-white/40 backdrop-blur ring-1 ring-black/5">
               <h1 className="font-display text-3xl font-medium tracking-tight text-gray-900">

@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback } from "react";
 import ToggleButton from "./ToggleButton";
 import { adjectives, champions } from "../db/data";
+import { BottomSheet } from "./BottomSheet";
 
 export function SkillSelectionScreen() {
   // State für ausgewählte Adjektive (max. 2)
@@ -48,7 +49,7 @@ export function SkillSelectionScreen() {
       {/* Header */}
 
       {selectedAdjectives.length < 2 ? (
-        <div className="h-[360px] mx-auto bg-primary-50 py-12">
+        <div className="h-[360px] mx-auto bg-primary-50 py-12 w-full">
           <h1 className="font-display text-5xl text-center font-medium tracking-tight text-balance text-gray-800">
             {selectedAdjectives.length === 0 ? (
               <span>
@@ -96,6 +97,7 @@ export function SkillSelectionScreen() {
           ))}
         </div>
       </div>
+      <BottomSheet />
     </div>
   );
 }

@@ -48,7 +48,7 @@ export function SkillSelectionScreen() {
       {/* Header */}
 
       {selectedAdjectives.length < 2 ? (
-        <div className="h-80 mx-auto max-w-5xl px-4 py-8">
+        <div className="h-[356px] mx-auto max-w-5xl px-4 py-8">
           <h1 className="font-display text-5xl text-center font-medium tracking-tight text-balance text-gray-800">
             {selectedAdjectives.length === 0 ? (
               <span>

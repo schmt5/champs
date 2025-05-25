@@ -133,7 +133,7 @@ const HomeScreen = ({ onNextPage }) => {
                 })} />
             </div>
             <div className=''>
-                <ImageHero src="src/assets/champion.jpg" alt='Portrait of a champion' />
+                <ImageHero src="/assets/champion.jpg" alt='Portrait of a champion' />
             </div>
 
         </div>

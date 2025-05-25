@@ -68,7 +68,7 @@ export function SkillSelectionScreen() {
             <img
               height={324}
               width={576}
-              src="src/assets/champion-1-landscape.jpg"
+              src="/assets/champion-1-landscape.jpg"
               alt="Champ"
             />
             <div className="p-4 absolute bottom-0 left-0 right-0 rounded-xs bg-white/40 backdrop-blur ring-1 ring-black/5">

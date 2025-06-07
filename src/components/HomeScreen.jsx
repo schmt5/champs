@@ -132,7 +132,7 @@ const HomeScreen = ({ onNextPage }) => {
         {!loading && (
           <button
             onClick={handleStartGame}
-            className="cursor-pointer relative inline-block font-medium group py-4 px-12 w-64 m-0"
+            className="cursor-pointer relative inline-block font-medium group py-4 px-12 m-0"
           >
             <span
               className={cn(

@@ -35,7 +35,6 @@ const HomeScreen = ({ onNextPage }) => {
       const textTimeline = createTimeline({
         loop: true,
         alternate: true,
-        loopDelay: 3000,
       });
 
       textTimeline
@@ -53,7 +52,9 @@ const HomeScreen = ({ onNextPage }) => {
             easing: "easeInOutQuad",
           },
           3000
-        );
+        ).add({
+            duration: 2000,
+        });
     });
 
     const startSpinner = utils.$(".cmp-start-spinner");

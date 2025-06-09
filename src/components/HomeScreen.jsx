@@ -19,7 +19,7 @@ const HomeScreen = ({ onNextPage }) => {
       startGameAnimation.current.play();
     }
 
-    await sleep(2000);
+    await sleep(1000);
     onNextPage();
   }, [onNextPage]);
 

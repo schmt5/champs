@@ -26,10 +26,7 @@ function App() {
     return <ExplainScreen onNextPage={handleStartGame} />;
   }
 
-  return (
-    <SkillSelectionScreen />
-   
-  );
+  return <SkillSelectionScreen />;
 }
 
 export default App;

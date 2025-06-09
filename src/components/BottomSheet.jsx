@@ -1,9 +1,8 @@
-import { useState, useRef, useCallback } from "react";
+import { useRef, useCallback, use } from "react";
 import { Sheet } from "react-modal-sheet";
 import { useOnClickOutside } from "usehooks-ts";
 
-export function BottomSheet() {
-  const [isOpen, setOpen] = useState(false);
+export function BottomSheet({ open, onClose }) {
   const contentInnerRef = useRef(null);
 
   const ref = useRef(null);
@@ -11,18 +10,15 @@ export function BottomSheet() {
 
   const snapTo = (i) => ref.current?.snapTo(i);
 
-  const onClose = useCallback(() => setOpen(false), []);
   useOnClickOutside(contentInnerRef, onClose);
 
   return (
     <>
-      <button onClick={() => setOpen(true)}>Open sheet</button>
-
       <Sheet
         ref={ref}
         snapPoints={snapPoints}
         initialSnap={1}
-        isOpen={isOpen}
+        isOpen={open}
         onClose={onClose}
         onSnap={(snapIndex) =>
           console.log("> Current snap point index:", snapIndex)

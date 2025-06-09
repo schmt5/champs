@@ -1,13 +1,25 @@
-export const adjectives = [
-  "kreativ",
-  "analytisch",
-  "freundlich",
-  "ehrgeizig",
-  "geduldig",
-  "spontan",
-  "loyal",
-  "humorvoll",
-];
+export const adjectives = {
+  de: [
+    "kreativ",
+    "analytisch",
+    "freundlich",
+    "ehrgeizig",
+    "geduldig",
+    "spontan",
+    "loyal",
+    "humorvoll",
+  ],
+  fr: [
+    "créatif",
+    "analytique",
+    "amical",
+    "ambitieux",
+    "patient",
+    "spontané",
+    "loyal",
+    "humoristique",
+  ],
+};
 
 export const champions = [
   {

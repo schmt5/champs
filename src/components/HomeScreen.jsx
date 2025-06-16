@@ -100,9 +100,9 @@ const HomeScreen = ({ onNextPage }) => {
   return (
     <div
       ref={root}
-      className="min-h-screen mx-auto max-w-5xl grid grid-cols-3 place-content-center relative"
+      className="min-h-screen mx-auto max-w-5xl p-4 grid grid-cols-3 place-content-center relative"
     >
-      <div className="absolute right-0 top-4 flex gap-1">
+      <div className="absolute right-4 top-4 flex gap-1">
         {availableLanguages.map((lang) => (
           <button
             key={lang.code}
@@ -118,10 +118,10 @@ const HomeScreen = ({ onNextPage }) => {
       </div>
 
       <div className="col-span-2 space-y-8 max-w-3xl px-4">
-        <h1 className="font-display text-5xl font-medium tracking-tight text-balance text-gray-600 sm:text-8xl mb-1">
+        <h1 className="font-display text-5xl sm:text-7xl font-medium tracking-tight text-balance text-gray-600 lg:text-8xl mb-1">
           {skSpans}
         </h1>
-        <h1 className="relative font-display text-5xl font-medium tracking-tight text-balance text-primary-500 sm:text-8xl">
+        <h1 className="relative font-display text-5xl sm:text-7xl font-medium tracking-tight text-balance text-primary-500 lg:text-8xl">
           {championsSpans}
           <span className="cmp-cursor inline-block w-1 bg-primary-500 absolute top-1 bottom-4 left-0" />
         </h1>

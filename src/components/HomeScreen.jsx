@@ -4,8 +4,9 @@ import { createScope, createTimeline, stagger, utils } from "animejs";
 import sleep from "../utils/sleep";
 import { ImageHero } from "./ImageHero";
 import { useLanguageStore } from "../store/languageStore";
+import { Logo } from "./Logo";
 
-const HomeScreen = ({ onNextPage }) => {
+const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
   const root = useRef(null);
   const scope = useRef(null);
   const startGameAnimation = useRef(null);
@@ -52,8 +53,9 @@ const HomeScreen = ({ onNextPage }) => {
             easing: "easeInOutQuad",
           },
           3000
-        ).add({
-            duration: 2000,
+        )
+        .add({
+          duration: 2000,
         });
     });
 
@@ -102,6 +104,7 @@ const HomeScreen = ({ onNextPage }) => {
       ref={root}
       className="min-h-screen mx-auto max-w-5xl p-4 grid grid-cols-3 place-content-center relative"
     >
+      <Logo onClick={onNavigateToHome} />
       <div className="absolute right-4 top-4 flex gap-1">
         {availableLanguages.map((lang) => (
           <button

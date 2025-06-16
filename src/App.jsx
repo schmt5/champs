@@ -8,15 +8,24 @@ import { SkillSelectionScreen } from "./components/SkillSelectionScreen";
 function App() {
   const [status, setStatus] = useState("home");
 
+  const onNavigateToHome = useCallback(() => {
+    setStatus("home");
+  }, []);
+
   const handleStartGame = useCallback(() => {
     setStatus("game");
   }, []);
 
   if (status === "home") {
-    return <HomeScreen onNextPage={handleStartGame} />;
+    return (
+      <HomeScreen
+        onNavigateToHome={onNavigateToHome}
+        onNextPage={handleStartGame}
+      />
+    );
   }
 
-  return <SkillSelectionScreen />;
+  return <SkillSelectionScreen onNavigateToHome={onNavigateToHome} />;
 }
 
 export default App;

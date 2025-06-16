@@ -3,8 +3,9 @@ import ToggleButton from "./ToggleButton";
 import { adjectives, champions } from "../db/data";
 import { BottomSheet } from "./BottomSheet";
 import { useLanguageStore } from "../store/languageStore";
+import { Logo } from "./Logo";
 
-export function SkillSelectionScreen() {
+export function SkillSelectionScreen({ onNavigateToHome }) {
   const { t, currentLanguage } = useLanguageStore();
   // State für ausgewählte Adjektive (max. 2)
   const [selectedAdjectives, setSelectedAdjectives] = useState([]);
@@ -57,8 +58,9 @@ export function SkillSelectionScreen() {
 
   return (
     <div className="min-h-screen flex flex-col bg-primary-50">
-      {/* Header */}
+      <Logo onNavigateToHome={onNavigateToHome} />
 
+      {/* Header */}
       {selectedAdjectives.length < 2 ? (
         <div className="h-[360px] mx-auto py-12 w-full ">
           <h1 className="font-display text-5xl text-center font-medium tracking-tight text-balance text-gray-800">

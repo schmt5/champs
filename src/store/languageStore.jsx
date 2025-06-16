@@ -13,14 +13,6 @@ const translations = {
     choose_skill: "Stärke aus",
     first: "erste",
     second: "zweite",
-    hello: "Hallo",
-    settings: "Einstellungen",
-    language: "Sprache",
-    save: "Speichern",
-    cancel: "Abbrechen",
-    loading: "Laden...",
-    error: "Ein Fehler ist aufgetreten",
-    success: "Erfolgreich gespeichert",
   },
   fr: {
     swiss_skills: "SwissSkills",
@@ -33,14 +25,17 @@ const translations = {
     choose_skill: "force",
     first: "premier",
     second: "deuxième",
-    hello: "Bonjour",
-    settings: "Paramètres",
-    language: "Langue",
-    save: "Enregistrer",
-    cancel: "Annuler",
-    loading: "Chargement...",
-    error: "Une erreur est survenue",
-    success: "Enregistré avec succès",
+  },
+  it: {
+    swiss_skills: "SwissSkills",
+    champions: "Campioni",
+    which_champion_are_you: "Quale campione sei?",
+    start_game: "Inizia il gioco",
+    choose_two_adjectives: "Scegli due aggettivi che ti rappresentano...",
+    choose: "Scegli la tua",
+    choose_skill: "forza",
+    first: "prima",
+    second: "seconda",
   },
 };
 
@@ -48,6 +43,7 @@ const translations = {
 export const availableLanguages = [
   { code: "de", name: "Deutsch" },
   { code: "fr", name: "Français" },
+  { code: "it", name: "Italiano" },
 ];
 
 // Language Store erstellen

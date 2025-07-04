@@ -1,12 +1,10 @@
-import React, { useState, useMemo, useCallback } from "react";
-
+import { useState, useCallback } from "react";
 import HomeScreen from "./components/HomeScreen";
-
 import { ExplainScreen } from "./components/ExplainScreen";
 import { SkillSelectionScreen } from "./components/SkillSelectionScreen";
 
 function App() {
-  const [status, setStatus] = useState("home");
+  const [status, setStatus] = useState("game");
 
   const onNavigateToHome = useCallback(() => {
     setStatus("home");

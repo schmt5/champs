@@ -9,7 +9,7 @@ export function Logo({ onNavigateToHome }) {
           xmlns="http://www.w3.org/2000/svg"
           width="76px"
           height="50px"
-          xml:space="preserve"
+          xmlSpace="preserve"
           viewBox="0 0 118 75"
         >
           <path

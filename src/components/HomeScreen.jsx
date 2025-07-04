@@ -28,7 +28,7 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
     const cursor = document.querySelector(".cmp-cursor");
     const spans = document.querySelectorAll(".cmp-title-spans");
 
-    scope.current = createScope({ root }).add((_self) => {
+    scope.current = createScope({ root }).add(() => {
       utils.set(spans, {
         opacity: 0,
       });

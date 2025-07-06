@@ -5,43 +5,22 @@ import { BottomSheet } from "./BottomSheet";
 import { useLanguageStore } from "../store/languageStore";
 import { Logo } from "./Logo";
 import { VideoPlayer } from "./VideoPlayer";
+import { useChampionStore } from "../store/championStore";
 
 export function SkillSelectionScreen({ onNavigateToHome }) {
   const { t, currentLanguage } = useLanguageStore();
+  const { selectedSkills, onSelectSkill, getHasReachedLimit } =
+    useChampionStore();
   // State für ausgewählte Adjektive (max. 2)
-  const [selectedAdjectives, setSelectedAdjectives] = useState([]);
   const [openBottomSheet, setOpenBottomSheet] = useState(false);
-
-  const isMaxSelected = useMemo(
-    () => selectedAdjectives.length >= 2,
-    [selectedAdjectives]
-  );
 
   const adjectiveStatus = useMemo(() => {
     return adjectives[currentLanguage].map((adj) => ({
       text: adj,
-      isSelected: selectedAdjectives.includes(adj),
-      isDisabled: isMaxSelected && !selectedAdjectives.includes(adj),
+      isSelected: selectedSkills.includes(adj),
+      isDisabled: getHasReachedLimit() && !selectedSkills.includes(adj),
     }));
-  }, [selectedAdjectives, isMaxSelected, currentLanguage]);
-
-  // Event-Handler mit useCallback für bessere Performance
-  const handleSelectAdjective = useCallback((adjective) => {
-    setSelectedAdjectives((prev) => {
-      // Wenn bereits ausgewählt, entferne es
-      if (prev.includes(adjective)) {
-        return prev.filter((adj) => adj !== adjective);
-      }
-
-      // Wenn noch nicht 2 ausgewählt, füge es hinzu
-      if (prev.length < 2) {
-        return [...prev, adjective];
-      }
-
-      // Ansonsten behalte den aktuellen Zustand
-      return prev;
-    });
-  }, []);
+  }, [selectedSkills, getHasReachedLimit, currentLanguage]);
 
   const onOpenBottomSheet = useCallback(() => {
     setOpenBottomSheet(true);
@@ -56,10 +35,10 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
       <Logo onNavigateToHome={onNavigateToHome} />
 
       {/* Header */}
-      {selectedAdjectives.length < 2 ? (
+      {!getHasReachedLimit() ? (
         <div className="h-[360px] mx-auto py-12 w-full ">
           <h1 className="font-display text-5xl text-center font-medium tracking-tight text-balance text-gray-800">
-            {selectedAdjectives.length === 0 ? (
+            {selectedSkills.length === 0 ? (
               <span>
                 {t("choose")} <strong>{t("first")}</strong> {t("choose_skill")}
               </span>
@@ -91,7 +70,7 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
               text={adjective.text}
               isSelected={adjective.isSelected}
               isDisabled={adjective.isDisabled}
-              onClick={handleSelectAdjective}
+              onClick={onSelectSkill}
             />
           ))}
         </div>

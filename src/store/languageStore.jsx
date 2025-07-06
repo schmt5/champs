@@ -13,6 +13,7 @@ const translations = {
     choose_skill: "Stärke aus",
     first: "erste",
     second: "zweite",
+    more_info: "mehr erfahren",
   },
   fr: {
     swiss_skills: "SwissSkills",
@@ -25,6 +26,7 @@ const translations = {
     choose_skill: "force",
     first: "premier",
     second: "deuxième",
+    more_info: "en savoir plus",
   },
   it: {
     swiss_skills: "SwissSkills",
@@ -36,6 +38,7 @@ const translations = {
     choose_skill: "forza",
     first: "prima",
     second: "seconda",
+    more_info: "maggiori informazioni",
   },
 };
 

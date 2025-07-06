@@ -71,7 +71,7 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
           </h1>
         </div>
       ) : (
-        <div className="h-[360px] mx-auto grid place-content-center w-full py-4">
+        <div className="h-[360px] mx-auto grid place-content-center w-full">
           <VideoPlayer
             src="/assets/v0-quer.mp4"
             height={360}

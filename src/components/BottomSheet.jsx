@@ -1,4 +1,4 @@
-import { useRef, useCallback, use } from "react";
+import { useRef } from "react";
 import { Sheet } from "react-modal-sheet";
 import { useOnClickOutside } from "usehooks-ts";
 
@@ -6,7 +6,7 @@ export function BottomSheet({ open, onClose }) {
   const contentInnerRef = useRef(null);
 
   const ref = useRef(null);
-  const snapPoints = [1, 0.6, 0];
+  const snapPoints = [1, 0.68, 0];
 
   const snapTo = (i) => ref.current?.snapTo(i);
 
@@ -28,9 +28,17 @@ export function BottomSheet({ open, onClose }) {
           <Sheet.Header />
           <Sheet.Content>
             <div ref={contentInnerRef} className="h-96 w-full">
-              <div className="py-2 px-12 max-w-5xl mx-auto">
-                <h1 className="text-lg font-bold">Hello, World!</h1>
-                <p>This is a bottom sheet example.</p>
+              <div className="p-4 max-w-2xl mx-auto">
+                <h1 className="font-display text-3xl font-medium tracking-tight text-gray-900">
+                  Daniela Ziller
+                </h1>
+                <p className="text-gray-900 font-medium">
+                  SwissSkill National Team, Mahlerin
+                </p>
+
+                <div>
+                  
+                </div>
                 <button className="block" onClick={() => snapTo(0)}>
                   Snap to index 0
                 </button>

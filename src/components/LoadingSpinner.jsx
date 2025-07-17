@@ -2,7 +2,7 @@ export function LoadingSpinner() {
   const color = "#e60000";
 
   return (
-    <div className="flex items-center justify-center relative">
+    <div className="flex items-center justify-center relative h-16">
       <div
         className="animate-spin rounded-full border-solid absolute"
         style={{

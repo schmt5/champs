@@ -39,10 +39,13 @@ export function SkillSelectionScreen() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-primary-50">
+    <div className="min-h-screen flex flex-col">
       {/* Header */}
       {!hasReachedLimit ? (
-        <div className="h-[360px] mx-auto py-12 w-full ">
+        <div
+          className="h-[320px] md:h-[470px] mx-auto py-12 w-full bg-primary-50"
+          style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 90%)" }}
+        >
           <h1 className="font-display text-5xl text-center font-medium tracking-tight text-balance text-gray-800">
             {selectedSkills.length === 0 ? (
               <span>
@@ -56,18 +59,21 @@ export function SkillSelectionScreen() {
           </h1>
         </div>
       ) : (
-        <div className="h-[360px] mx-auto grid place-content-center w-full">
+        <div className="mx-auto grid place-content-center w-full">
           <VideoPlayer
             src="/assets/v0-quer.mp4"
-            height={360}
-            width={640}
+            height={472}
+            width={840}
             onOpenChampionInfo={onOpenBottomSheet}
             isChampionInfoOpen={openBottomSheet}
           />
         </div>
       )}
 
-      <div className="bg-white rounded-t-4xl border-t-2 border-primary-100 flex-1 py-8 shadow-xl">
+      <div
+        className="bg-white flex-1 py-12"
+        style={{ clipPath: "polygon(0 7%, 100% 0, 100% 100%, 0 100%)" }}
+      >
         {/* Adjektiv-Grid */}
         <div className="mt-12 grid grid-cols-2 gap-6 max-w-2xl mx-auto">
           {Object.entries(skills).map(([key, skill]) => (

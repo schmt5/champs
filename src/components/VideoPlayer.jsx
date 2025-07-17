@@ -45,7 +45,7 @@ export function VideoPlayer({
   }, []);
 
   return (
-    <div ref={root} className="relative aspect-video overflow-hidden">
+    <div ref={root} className="relative aspect-video overflow-hidden min-h-16">
       <div className={!canPlay ? "sr-only" : ""}>
         <video
           height={height}

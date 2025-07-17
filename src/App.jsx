@@ -4,7 +4,7 @@ import { ExplainScreen } from "./components/ExplainScreen";
 import { SkillSelectionScreen } from "./components/SkillSelectionScreen";
 
 function App() {
-  const [status, setStatus] = useState("home");
+  const [status, setStatus] = useState("game");
 
   const onNavigateToHome = useCallback(() => {
     setStatus("home");

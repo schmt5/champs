@@ -6,7 +6,7 @@ export function SkillInfoBottomSheet({ skill, open, onClose }) {
   const contentInnerRef = useRef(null);
 
   const ref = useRef(null);
-  const snapPoints = [1, 0.95];
+  const snapPoints = [1, 0.85];
   useOnClickOutside(contentInnerRef, onClose);
 
   if (!open || !skill) {

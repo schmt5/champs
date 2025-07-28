@@ -1,18 +1,17 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { BottomSheet } from "./BottomSheet";
 import { useLanguageStore } from "../store/languageStore";
 import { VideoPlayer } from "./VideoPlayer";
 import { useChampionStore } from "../store/championStore";
-import { SKILLS_DE } from "../db/skills";
 import { SkillSplitButton } from "./ui/SkillSplitButton";
 import { SkillInfoBottomSheet } from "./ui/SkillInfoBottomSheet";
 
 export function SkillSelectionScreen() {
-  const { t, currentLanguage } = useLanguageStore();
-  const { selectedSkills, onSelectSkill, getHasReachedLimit } =
-    useChampionStore();
+  const { t, getSkills } = useLanguageStore();
+  const { selectedSkills, onSelectSkill, getChampion } = useChampionStore();
 
-  const hasReachedLimit = getHasReachedLimit();
+  const champion = getChampion();
+
   // State für ausgewählte Adjektive (max. 2)
   const [openBottomSheet, setOpenBottomSheet] = useState(false);
 
@@ -24,11 +23,7 @@ export function SkillSelectionScreen() {
     setDisplaySkillId(null);
   }, []);
 
-  const skills = useMemo(() => {
-    if (currentLanguage === "de") {
-      return SKILLS_DE;
-    }
-  }, [currentLanguage]);
+  const skills = getSkills();
 
   const onOpenBottomSheet = useCallback(() => {
     setOpenBottomSheet(true);
@@ -41,7 +36,7 @@ export function SkillSelectionScreen() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      {!hasReachedLimit ? (
+      {!champion ? (
         <div
           className="h-[320px] md:h-[470px] mx-auto py-12 w-full bg-primary-50"
           style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 90%)" }}
@@ -61,6 +56,7 @@ export function SkillSelectionScreen() {
       ) : (
         <div className="mx-auto grid place-content-center w-full">
           <VideoPlayer
+            champion={champion}
             src="/assets/v0-quer.mp4"
             height={472}
             width={840}
@@ -82,14 +78,18 @@ export function SkillSelectionScreen() {
               id={key}
               text={skill.text}
               isSelected={selectedSkills.includes(key)}
-              isDisabled={hasReachedLimit && !selectedSkills.includes(key)}
+              isDisabled={champion && !selectedSkills.includes(key)}
               onSkillToggle={onSelectSkill}
               onDisplaySkillInfo={onDisplaySkillInfo}
             />
           ))}
         </div>
       </div>
-      <BottomSheet open={openBottomSheet} onClose={onCloseBottomSheet} />
+      <BottomSheet
+        champion={champion}
+        open={openBottomSheet}
+        onClose={onCloseBottomSheet}
+      />
       <SkillInfoBottomSheet
         skill={skills[displaySkillId]}
         open={displaySkillId !== null}

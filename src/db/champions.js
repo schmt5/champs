@@ -1,0 +1,80 @@
+export const CHAMPIONS = [
+  {
+    name: "Jérémie Droz",
+    skills: ["creative", "practical"],
+    headline: "champion_headline_jeremie",
+    src: "",
+  },
+  {
+    name: "Samuel Binder",
+    skills: ["creative", "helpful"],
+    headline: "",
+    src: "",
+  },
+  {
+    name: "Zaid Rast",
+    skills: ["practical", "helpful"],
+    headline: "",
+    src: "",
+  },
+  {
+    name: "Philippe Dourassov",
+    skills: ["creative", "logical"],
+    headline: "",
+    src: "",
+  },
+  {
+    name: "Melitta Leu",
+    skills: ["practical", "logical"],
+    headline: "",
+    src: "",
+  },
+  {
+    name: "Simona Gier",
+    skills: ["creative", "determined"],
+    headline: "",
+    src: "",
+  },
+  {
+    name: "Mattia Andrea Plattner",
+    skills: ["practical", "determined"],
+    headline: "",
+    src: "",
+  },
+  {
+    name: "Matteo Calà",
+    skills: ["helpful", "determined"],
+    headline: "",
+    src: "",
+  },
+  {
+    name: "Jana Gander",
+    skills: ["logical", "determined"],
+    headline: "",
+    src: "",
+  },
+  {
+    name: "Stefanie Fahrni",
+    skills: ["creative", "persevering"],
+    headline: "",
+    src: "",
+  },
+  {
+    name: "Carmen Bircher",
+    skills: ["helpful", "persevering"],
+    headline: "",
+    src: "",
+  },
+  {
+    name: "Andrin Dobler",
+    skills: ["logical", "persevering"],
+    headline: "",
+    src: "",
+  },
+  {
+    name: "Luca Hubmann",
+    skills: ["determined", "persevering"],
+    headline: "",
+    src: "",
+  },
+];

@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { persist, subscribeWithSelector } from "zustand/middleware";
+import { SKILLS_DE } from "../db/skills";
 
 // Übersetzungen definieren
 const translations = {
@@ -14,6 +15,7 @@ const translations = {
     first: "erste",
     second: "zweite",
     more_info: "mehr erfahren",
+    champion_headline_jeremie: "SwissSkill National Team, Mahler",
   },
   fr: {
     swiss_skills: "SwissSkills",
@@ -58,6 +60,15 @@ export const useLanguageStore = create(
         currentLanguage: "de",
         translations,
         availableLanguages,
+        getSkills: () => {
+          const { currentLanguage } = get();
+
+          if (currentLanguage === "de") {
+            return SKILLS_DE;
+          } else {
+            return SKILLS_DE;
+          }
+        },
 
         // Actions
         setLanguage: (languageCode) => {

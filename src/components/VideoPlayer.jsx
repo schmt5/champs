@@ -5,6 +5,7 @@ import { cn } from "../utils/cn";
 import { useLanguageStore } from "../store/languageStore";
 
 export function VideoPlayer({
+  champion,
   src,
   height,
   width,
@@ -63,10 +64,10 @@ export function VideoPlayer({
           <div className="flex items-center justify-between gap-4">
             <div>
               <h1 className="font-display text-3xl font-medium tracking-tight text-gray-900">
-                Daniela Ziller
+                {champion.name}
               </h1>
               <p className="text-gray-900 font-medium">
-                SwissSkill National Team, Mahlerin
+                {t(champion.headline)}
               </p>
             </div>
             <button

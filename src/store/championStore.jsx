@@ -1,7 +1,8 @@
 import { create } from "zustand";
+import { CHAMPIONS } from "../db/champions";
 
 export const useChampionStore = create((set, get) => ({
-  champions: [],
+  champions: CHAMPIONS,
   selectedSkills: [],
   onSelectSkill: (skill) => {
     const { selectedSkills } = get();
@@ -14,8 +15,17 @@ export const useChampionStore = create((set, get) => ({
       set({ selectedSkills: [...selectedSkills, skill] });
     }
   },
-  getHasReachedLimit: () => {
-    const { selectedSkills } = get();
-    return selectedSkills.length >= 2;
+  getChampion: () => {
+    const { champions, selectedSkills } = get();
+
+    if (selectedSkills.length < 2) {
+      return null;
+    }
+
+    const selected = champions.find((champion) =>
+      champion.skills.every((skill) => selectedSkills.includes(skill))
+    );
+
+    return selected || null;
   },
 }));

@@ -45,7 +45,7 @@ export function BottomSheet({ champion, open, onClose }) {
                   {champion.skills.map((skillKey) => (
                     <span
                       key={skillKey}
-                      className="inline-flex items-center py-2 px-4 rounded-full text-sm font-medium text-white bg-gradient-to-br from-[#e60000] to-[#ff4444] transition-all duration-300 ease-in-out cursor-default select-none hover:bg-gradient-to-br hover:from-[#cc0000] hover:to-[#e60000] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(230,0,0,0.4)]"
+                      className="inline-flex items-center py-2 px-4 rounded-full text-sm font-medium text-white bg-gradient-to-br from-[#e60000] to-[#ff4444]"
                     >
                       {skills[skillKey].text}
                     </span>

@@ -16,13 +16,13 @@ export function VideoPlayer({
   const [canPlay, setCanPlay] = useState(false);
   const root = useRef(null);
   const scope = useRef(null);
-  const onVideoEnd = useCallback(() => {
+
+  const onCanPlay = useCallback(() => {
+    setCanPlay(true);
     if (scope.current) {
       scope.current.methods.playChampBarAnimation();
     }
   }, []);
-
-  const onCanPlay = useCallback(() => setCanPlay(true), []);
 
   useEffect(() => {
     scope.current = createScope({ root }).add((self) => {
@@ -32,6 +32,7 @@ export function VideoPlayer({
           translateY: "0%",
           scale: [0.7, 1],
           duration: 300,
+          delay: 300,
         });
       });
 
@@ -48,13 +49,7 @@ export function VideoPlayer({
   return (
     <div ref={root} className="relative aspect-video overflow-hidden min-h-16">
       <div className={!canPlay ? "sr-only" : ""}>
-        <video
-          height={height}
-          width={width}
-          autoPlay
-          onCanPlay={onCanPlay}
-          onEnded={onVideoEnd}
-        >
+        <video height={height} width={width} autoPlay onCanPlay={onCanPlay}>
           <source src={src} type="video/mp4" />
         </video>
         <div

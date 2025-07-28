@@ -10,7 +10,7 @@ export function BottomSheet({ champion, open, onClose }) {
 
   const contentInnerRef = useRef(null);
   const ref = useRef(null);
-  const snapPoints = [1, 0.68, 0];
+  const snapPoints = [1, 0.5, 0];
 
   useOnClickOutside(contentInnerRef, onClose);
 

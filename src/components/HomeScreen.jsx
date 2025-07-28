@@ -102,7 +102,7 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
   return (
     <div ref={root} className="min-h-screen mx-auto max-w-5xl relative">
       <Logo onClick={onNavigateToHome} compact />
-      <div className="mt-24 p-4 grid grid-cols-3 place-content-center">
+      <div className="mt-16 p-8 grid lg:grid-cols-3 place-content-center">
         <div className="absolute right-4 top-4 flex gap-1">
           {availableLanguages.map((lang) => (
             <button
@@ -120,7 +120,7 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
           ))}
         </div>
 
-        <div className="col-span-2 space-y-8 max-w-3xl px-4">
+        <div className="lg:col-span-2 space-y-8 max-w-3xl px-4">
           <h1 className="font-display text-5xl sm:text-7xl font-medium tracking-tight text-balance text-gray-600 lg:text-8xl mb-1">
             {skSpans}
           </h1>
@@ -160,7 +160,7 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
             )}
           />
         </div>
-        <div className="">
+        <div className="mt-28 lg:mt-0">
           <ImageHero src="/assets/c1-p.webp" alt="Portrait of a champion" />
         </div>
       </div>

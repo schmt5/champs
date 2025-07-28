@@ -44,7 +44,11 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Logo onNavigateToHome={onNavigateToHome} compact background />
+      <Logo
+        onNavigateToHome={onNavigateToHome}
+        compact
+        background={!champion}
+      />
 
       {/* Header */}
       {!champion ? (

@@ -102,7 +102,7 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
   return (
     <div ref={root} className="min-h-screen mx-auto max-w-5xl relative">
       <Logo onClick={onNavigateToHome} compact />
-      <div className="mt-8 p-4 grid grid-cols-3 place-content-center">
+      <div className="mt-24 p-4 grid grid-cols-3 place-content-center">
         <div className="absolute right-4 top-4 flex gap-1">
           {availableLanguages.map((lang) => (
             <button

@@ -1,12 +1,13 @@
 import { useRef } from "react";
 import { Sheet } from "react-modal-sheet";
 import { useOnClickOutside } from "usehooks-ts";
+import { BottomSheetCloseButton } from "./BottomSheetCloseButton";
 
 export function SkillInfoBottomSheet({ skill, open, onClose }) {
   const contentInnerRef = useRef(null);
 
   const ref = useRef(null);
-  const snapPoints = [1, 0.85];
+  const snapPoints = [1, 0.5];
   useOnClickOutside(contentInnerRef, onClose);
 
   if (!open || !skill) {
@@ -25,7 +26,8 @@ export function SkillInfoBottomSheet({ skill, open, onClose }) {
         <Sheet.Header />
         <Sheet.Content>
           <div ref={contentInnerRef} className="h-full w-full">
-            <div className="flex gap-6 p-4 max-w-3xl mx-auto">
+            <BottomSheetCloseButton onClose={onClose} />
+            <div className="mt-8 flex gap-6 p-4 max-w-3xl mx-auto">
               <img
                 className="flex-1 overflow-hidden aspect-auto rounded-xs"
                 src={skill.src}

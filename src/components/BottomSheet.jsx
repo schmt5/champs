@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Sheet } from "react-modal-sheet";
 import { useOnClickOutside } from "usehooks-ts";
 import { useLanguageStore } from "../store/languageStore";
+import { BottomSheetCloseButton } from "./ui/BottomSheetCloseButton";
 
 export function BottomSheet({ champion, open, onClose }) {
   const { t, getSkills } = useLanguageStore();
@@ -33,6 +34,7 @@ export function BottomSheet({ champion, open, onClose }) {
           <Sheet.Header />
           <Sheet.Content>
             <div ref={contentInnerRef} className="h-96 w-full">
+              <BottomSheetCloseButton onClose={onClose} />
               <div className="p-4 max-w-2xl mx-auto">
                 <h1 className="font-display text-3xl font-medium tracking-tight text-gray-900">
                   {champion.name}

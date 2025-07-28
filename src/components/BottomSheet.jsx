@@ -51,6 +51,20 @@ export function BottomSheet({ champion, open, onClose }) {
                     </span>
                   ))}
                 </div>
+                <div className="mt-8">
+                  <p className="text-gray-700 text-xl">
+                    <span>{t("teaser_end")}</span>
+                  </p>
+                  <p>
+                    <a
+                      className="text-primary-500 underline text-xl"
+                      target="_blank"
+                      href="https://champions.swiss-skills.ch"
+                    >
+                      champions.swiss-skills.ch
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
           </Sheet.Content>

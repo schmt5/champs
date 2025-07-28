@@ -2,12 +2,12 @@ import { create } from "zustand";
 import { persist, subscribeWithSelector } from "zustand/middleware";
 import { SKILLS_DE } from "../db/skills";
 
-// Übersetzungen definieren
 const translations = {
   de: {
     swiss_skills: "SwissSkills",
     champions: "Champions",
     teaser_start: "Mach mit! Wähle zwei Stärken – finde deinen Champion.",
+    teaser_end: "Entdecke noch mehr Champions – und lass dich inspirieren!",
     which_champion_are_you: "Welcher Champion bist du?",
     start_game: "Spiel starten",
     choose_two_adjectives: "Wähle zwei Adjektive, die zu dir passen...",
@@ -21,7 +21,10 @@ const translations = {
   fr: {
     swiss_skills: "SwissSkills",
     champions: "Champions",
-    teaser_start: "Participez ! Choisissez deux forces – trouvez votre champion.",
+    teaser_start:
+      "Participez ! Choisissez deux forces – trouvez votre champion.",
+    teaser_end:
+      "Découvrez encore plus de champions – et laissez-vous inspirer !",
     which_champion_are_you: "Quel champion êtes-vous ?",
     start_game: "Démarrer le jeu",
     choose_two_adjectives:
@@ -36,6 +39,7 @@ const translations = {
     swiss_skills: "SwissSkills",
     champions: "Campioni",
     teaser_start: "Partecipa! Scegli due forze – trova il tuo campione.",
+    teaser_end: "Scopri ancora più campioni – e lasciati ispirare!",
     which_champion_are_you: "Quale campione sei?",
     start_game: "Inizia il gioco",
     choose_two_adjectives: "Scegli due aggettivi che ti rappresentano...",

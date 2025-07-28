@@ -5,10 +5,13 @@ import { VideoPlayer } from "./VideoPlayer";
 import { useChampionStore } from "../store/championStore";
 import { SkillSplitButton } from "./ui/SkillSplitButton";
 import { SkillInfoBottomSheet } from "./ui/SkillInfoBottomSheet";
+import { useUnmount } from "usehooks-ts";
+import { Logo } from "./Logo";
 
-export function SkillSelectionScreen() {
+export function SkillSelectionScreen({ onNavigateToHome }) {
   const { t, getSkills } = useLanguageStore();
-  const { selectedSkills, onSelectSkill, getChampion } = useChampionStore();
+  const { selectedSkills, onSelectSkill, getChampion, resetSkills } =
+    useChampionStore();
 
   const champion = getChampion();
 
@@ -33,8 +36,16 @@ export function SkillSelectionScreen() {
     setOpenBottomSheet(false);
   }, []);
 
+  useUnmount(() => {
+    setOpenBottomSheet(false);
+    setDisplaySkillId(null);
+    resetSkills();
+  });
+
   return (
     <div className="min-h-screen flex flex-col">
+      <Logo onNavigateToHome={onNavigateToHome} compact background />
+
       {/* Header */}
       {!champion ? (
         <div

@@ -28,4 +28,5 @@ export const useChampionStore = create((set, get) => ({
 
     return selected || null;
   },
+  resetSkills: () => set({ selectedSkills: [] }),
 }));

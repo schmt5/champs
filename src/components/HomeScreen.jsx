@@ -100,70 +100,69 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
   ));
 
   return (
-    <div
-      ref={root}
-      className="min-h-screen mx-auto max-w-5xl p-4 grid grid-cols-3 place-content-center relative"
-    >
-      <Logo onClick={onNavigateToHome} />
-      <div className="absolute right-4 top-4 flex gap-1">
-        {availableLanguages.map((lang) => (
-          <button
-            key={lang.code}
-            className={cn(
-              "px-2 py-1 hover:underline transition-colors",
-              currentLanguage === lang.code ? "text-primary-500 underline" : ""
-            )}
-            onClick={() => setLanguage(lang.code)}
-          >
-            {lang.name}
-          </button>
-        ))}
-      </div>
-
-      <div className="col-span-2 space-y-8 max-w-3xl px-4">
-        <h1 className="font-display text-5xl sm:text-7xl font-medium tracking-tight text-balance text-gray-600 lg:text-8xl mb-1">
-          {skSpans}
-        </h1>
-        <h1 className="relative font-display text-5xl sm:text-7xl font-medium tracking-tight text-balance text-primary-500 lg:text-8xl">
-          {championsSpans}
-          <span className="cmp-cursor inline-block w-1 bg-primary-500 absolute top-1 bottom-4 left-0" />
-        </h1>
-        <p className="mt-12 text-gray-600 text-3xl">
-          {t("which_champion_are_you")}
-        </p>
-
-        {!loading && (
-          <button
-            onClick={handleStartGame}
-            className="cursor-pointer relative inline-block font-medium group py-4 px-12 m-0"
-          >
-            <span
+    <div ref={root} className="min-h-screen mx-auto max-w-5xl relative">
+      <Logo onClick={onNavigateToHome} compact />
+      <div className="mt-8 p-4 grid grid-cols-3 place-content-center">
+        <div className="absolute right-4 top-4 flex gap-1">
+          {availableLanguages.map((lang) => (
+            <button
+              key={lang.code}
               className={cn(
-                "absolute rounded inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-primary-500 group-hover:-translate-x-0 group-hover:-translate-y-0"
+                "px-4 py-6 hover:underline transition-colors",
+                currentLanguage === lang.code
+                  ? "text-primary-500 underline"
+                  : ""
               )}
-            ></span>
-            <span
-              className={cn(
-                "absolute inset-0 w-full h-full bg-white border-2 border-primary-500 rounded"
-              )}
-            ></span>
-            <span className="relative text-primary-500 text-2xl font-semibold">
-              {t("start_game")}
-            </span>
-          </button>
-        )}
+              onClick={() => setLanguage(lang.code)}
+            >
+              {lang.name}
+            </button>
+          ))}
+        </div>
 
-        <div
-          className={cn(
-            "cmp-start-spinner w-64 h-16 bg-white rounded border-2 border-primary-500",
-            {
-              hidden: !loading,
-            }
+        <div className="col-span-2 space-y-8 max-w-3xl px-4">
+          <h1 className="font-display text-5xl sm:text-7xl font-medium tracking-tight text-balance text-gray-600 lg:text-8xl mb-1">
+            {skSpans}
+          </h1>
+          <h1 className="relative font-display text-5xl sm:text-7xl font-medium tracking-tight text-balance text-primary-500 lg:text-8xl">
+            {championsSpans}
+            <span className="cmp-cursor inline-block w-1 bg-primary-500 absolute top-1 bottom-4 left-0" />
+          </h1>
+          <p className="mt-12 text-gray-600 text-3xl">{t("teaser_start")}</p>
+
+          {!loading && (
+            <button
+              onClick={handleStartGame}
+              className="cursor-pointer relative inline-block font-medium group py-4 px-12 m-0"
+            >
+              <span
+                className={cn(
+                  "absolute rounded inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-primary-500 group-hover:-translate-x-0 group-hover:-translate-y-0"
+                )}
+              ></span>
+              <span
+                className={cn(
+                  "absolute inset-0 w-full h-full bg-white border-2 border-primary-500 rounded"
+                )}
+              ></span>
+              <span className="relative text-primary-500 text-2xl font-semibold">
+                {t("start_game")}
+              </span>
+            </button>
           )}
-        />
-      </div>
-      <div className="">
-        <ImageHero src="/assets/c1-p.webp" alt="Portrait of a champion" />
+
+          <div
+            className={cn(
+              "cmp-start-spinner w-64 h-16 bg-white rounded border-2 border-primary-500",
+              {
+                hidden: !loading,
+              }
+            )}
+          />
+        </div>
+        <div className="">
+          <ImageHero src="/assets/c1-p.webp" alt="Portrait of a champion" />
+        </div>
       </div>
     </div>
   );

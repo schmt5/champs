@@ -7,6 +7,7 @@ const translations = {
   de: {
     swiss_skills: "SwissSkills",
     champions: "Champions",
+    teaser_start: "Mach mit! Wähle zwei Stärken – finde deinen Champion.",
     which_champion_are_you: "Welcher Champion bist du?",
     start_game: "Spiel starten",
     choose_two_adjectives: "Wähle zwei Adjektive, die zu dir passen...",
@@ -20,6 +21,7 @@ const translations = {
   fr: {
     swiss_skills: "SwissSkills",
     champions: "Champions",
+    teaser_start: "Participez ! Choisissez deux forces – trouvez votre champion.",
     which_champion_are_you: "Quel champion êtes-vous ?",
     start_game: "Démarrer le jeu",
     choose_two_adjectives:
@@ -33,6 +35,7 @@ const translations = {
   it: {
     swiss_skills: "SwissSkills",
     champions: "Campioni",
+    teaser_start: "Partecipa! Scegli due forze – trova il tuo campione.",
     which_champion_are_you: "Quale campione sei?",
     start_game: "Inizia il gioco",
     choose_two_adjectives: "Scegli due aggettivi che ti rappresentano...",

@@ -26,7 +26,7 @@ export const useChampionStore = create((set, get) => ({
       champion.skills.every((skill) => selectedSkills.includes(skill))
     );
 
-    return selected || null;
+    return selected || "no_champion_found";
   },
   resetSkills: () => set({ selectedSkills: [] }),
 }));

@@ -65,9 +65,9 @@ export function VideoPlayer({
                 {t(champion.headline)}
               </p>
             </div>
-            <button
-              onClick={onOpenChampionInfo}
-              disabled={isChampionInfoOpen}
+            <a
+              href="https://champions.swiss-skills.ch"
+              target="_blank"
               className="cursor-pointer relative inline-block font-medium group py-2 px-6 m-0"
             >
               <span
@@ -81,9 +81,9 @@ export function VideoPlayer({
                 )}
               ></span>
               <span className="relative text-primary-500 text-xl font-semibold">
-                {t("more_info")}
+                {t("get_inspired")}
               </span>
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -93,5 +93,29 @@ export function VideoPlayer({
         </div>
       )}
     </div>
+  );
+}
+
+function OpenChampInfoButton({ onOpenChampionInfo, isChampionInfoOpen }) {
+  return (
+    <button
+      onClick={onOpenChampionInfo}
+      disabled={isChampionInfoOpen}
+      className="cursor-pointer relative inline-block font-medium group py-2 px-6 m-0"
+    >
+      <span
+        className={cn(
+          "absolute rounded inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-primary-500 group-hover:-translate-x-0 group-hover:-translate-y-0"
+        )}
+      ></span>
+      <span
+        className={cn(
+          "absolute inset-0 w-full h-full bg-white border-2 border-primary-500 rounded"
+        )}
+      ></span>
+      <span className="relative text-primary-500 text-xl font-semibold">
+        {t("more_info")}
+      </span>
+    </button>
   );
 }

@@ -14,6 +14,7 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
     useChampionStore();
 
   const champion = getChampion();
+  const hasChampion = champion && champion !== "no_champion_found";
 
   // State für ausgewählte Adjektive (max. 2)
   const [openBottomSheet, setOpenBottomSheet] = useState(false);
@@ -51,21 +52,31 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
       />
 
       {/* Header */}
-      {!champion ? (
+      {!hasChampion ? (
         <div
           className="h-[320px] md:h-[470px] mx-auto py-12 w-full bg-primary-50"
           style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 90%)" }}
         >
           <h1 className="font-display text-5xl text-center font-medium tracking-tight text-balance text-gray-800">
-            {selectedSkills.length === 0 ? (
+            {selectedSkills.length === 0 && (
               <span>
                 {t("choose")} <strong>{t("first")}</strong> {t("choose_skill")}
               </span>
-            ) : (
+            )}
+            {selectedSkills.length === 1 && (
               <span>
                 {t("choose")} <strong>{t("second")}</strong> {t("choose_skill")}
               </span>
             )}
+
+            {champion === "no_champion_found" &&
+              selectedSkills.length === 2 && (
+                <span>
+                  {t("claim_spot_leading")}{" "}
+                  <strong>{t("claim_spot_strong")}</strong>{" "}
+                  {t("claim_spot_trailing")}
+                </span>
+              )}
           </h1>
         </div>
       ) : (
@@ -100,11 +111,16 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
           ))}
         </div>
       </div>
-      <BottomSheet
-        champion={champion}
-        open={openBottomSheet}
-        onClose={onCloseBottomSheet}
-      />
+
+      {/* Park it here, maybe use it later */}
+      {false && (
+        <BottomSheet
+          champion={champion}
+          open={openBottomSheet}
+          onClose={onCloseBottomSheet}
+        />
+      )}
+
       <SkillInfoBottomSheet
         skill={skills[displaySkillId]}
         open={displaySkillId !== null}

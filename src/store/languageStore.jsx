@@ -13,9 +13,13 @@ const translations = {
     choose_two_adjectives: "Wähle zwei Adjektive, die zu dir passen...",
     choose: "Wähle deine",
     choose_skill: "Stärke aus",
+    claim_spot_leading: "Noch frei - dieser Platz könnte",
+    claim_spot_strong: "deiner",
+    claim_spot_trailing: "sein",
     first: "erste",
     second: "zweite",
     more_info: "mehr erfahren",
+    get_inspired: "Entdecke noch mehr Champions – und lass dich inspirieren!",
     champion_headline_jeremie: "SwissSkill National Team, Mahler",
   },
   fr: {
@@ -33,7 +37,12 @@ const translations = {
     choose_skill: "force",
     first: "premier",
     second: "deuxième",
+    claim_spot_leading: "Encore libre - cette place pourrait être la",
+    claim_spot_strong: "tienne",
+    claim_spot_trailing: "",
     more_info: "en savoir plus",
+    get_inspired:
+      "Découvrez encore plus de champions – et laissez-vous inspirer !",
   },
   it: {
     swiss_skills: "SwissSkills",
@@ -45,9 +54,13 @@ const translations = {
     choose_two_adjectives: "Scegli due aggettivi che ti rappresentano...",
     choose: "Scegli la tua",
     choose_skill: "forza",
+    claim_spot_leading: "Ancora libero - questo posto potrebbe essere il",
+    claim_spot_strong: "tuo",
+    claim_spot_trailing: "",
     first: "prima",
     second: "seconda",
     more_info: "maggiori informazioni",
+    get_inspired: "Scopri ancora più campioni – e lasciati ispirare!",
   },
 };
 

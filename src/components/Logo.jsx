@@ -4,7 +4,7 @@ export function Logo({ onNavigateToHome, compact = false, background }) {
   if (compact) {
     return (
       <div
-        className={cn("text-primary-500 h-28 px-10 flex items-center", {
+        className={cn("fixed top-0 right-6 text-primary-500 h-28 pt-4 flex items-start justify-end", {
           "bg-primary-50": background,
         })}
       >
@@ -40,7 +40,7 @@ export function Logo({ onNavigateToHome, compact = false, background }) {
   return (
     <div
       style={{ clipPath: "polygon(0 0, 100% 0, 35% 32%, 0 100%)" }}
-      className="fixed p-4 text-white left-0 top-0 w-60 h-60 bg-primary-500"
+      className="fixed p-4 text-white left-0 top-0 w-60 h-60 bg-primary-500 z-0"
     >
       <button onClick={onNavigateToHome}>
         <svg

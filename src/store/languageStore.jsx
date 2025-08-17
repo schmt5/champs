@@ -16,6 +16,7 @@ const translations = {
     claim_spot_leading: "Noch frei - dieser Platz könnte",
     claim_spot_strong: "deiner",
     claim_spot_trailing: "sein",
+    your_spot: "Hier fehlt jemand wie du!",
     first: "erste",
     second: "zweite",
     more_info: "mehr erfahren",
@@ -40,6 +41,7 @@ const translations = {
     claim_spot_leading: "Encore libre - cette place pourrait être la",
     claim_spot_strong: "tienne",
     claim_spot_trailing: "",
+    your_spot: "Il manque quelqu'un comme vous ici!",
     more_info: "en savoir plus",
     get_inspired:
       "Découvrez encore plus de champions – et laissez-vous inspirer !",
@@ -57,6 +59,7 @@ const translations = {
     claim_spot_leading: "Ancora libero - questo posto potrebbe essere il",
     claim_spot_strong: "tuo",
     claim_spot_trailing: "",
+    your_spot: "Il manca qualcuno come te qui!",
     first: "prima",
     second: "seconda",
     more_info: "maggiori informazioni",

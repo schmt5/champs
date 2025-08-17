@@ -44,20 +44,14 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
   });
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Logo
-        onNavigateToHome={onNavigateToHome}
-        compact
-        background={!champion}
-      />
-
+    <div className="h-dvh grid grid-cols-2 gap-6">
       {/* Header */}
       {!hasChampion ? (
         <div
-          className="h-[320px] md:h-[470px] mx-auto py-12 w-full bg-primary-50"
-          style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 90%)" }}
+          className="h-full bg-primary-50 flex items-center justify-center px-6"
+          style={{ clipPath: "polygon(0 0, 100% 0, 90% 100%, 0 100%)" }}
         >
-          <h1 className="font-display text-5xl text-center font-medium tracking-tight text-balance text-gray-800">
+          <h1 className="font-display text-5xl text-center font-medium tracking-tight text-balance text-gray-800 max-w-xl">
             {selectedSkills.length === 0 && (
               <span>
                 {t("choose")} <strong>{t("first")}</strong> {t("choose_skill")}
@@ -71,16 +65,12 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
 
             {champion === "no_champion_found" &&
               selectedSkills.length === 2 && (
-                <span>
-                  {t("claim_spot_leading")}{" "}
-                  <strong>{t("claim_spot_strong")}</strong>{" "}
-                  {t("claim_spot_trailing")}
-                </span>
+                <span>{t("your_spot")}</span>
               )}
           </h1>
         </div>
       ) : (
-        <div className="mx-auto grid place-content-center w-full">
+        <div className="mx-auto grid place-content-center w-full pl-6">
           <VideoPlayer
             champion={champion}
             src="/assets/v0-quer.mp4"
@@ -92,23 +82,23 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
         </div>
       )}
 
-      <div
-        className="bg-white flex-1 py-12"
-        style={{ clipPath: "polygon(0 7%, 100% 0, 100% 100%, 0 100%)" }}
-      >
+      <div className="bg-white pr-6 flex flex-col">
+        <Logo onNavigateToHome={onNavigateToHome} compact />
         {/* Adjektiv-Grid */}
-        <div className="mt-12 grid grid-cols-2 gap-6 max-w-2xl mx-auto">
-          {Object.entries(skills).map(([key, skill]) => (
-            <SkillSplitButton
-              key={key}
-              id={key}
-              text={skill.text}
-              isSelected={selectedSkills.includes(key)}
-              isDisabled={champion && !selectedSkills.includes(key)}
-              onSkillToggle={onSelectSkill}
-              onDisplaySkillInfo={onDisplaySkillInfo}
-            />
-          ))}
+        <div className="flex-1 flex items-center justify-center">
+          <div className="grid grid-cols-2 gap-6 w-full max-w-2xl">
+            {Object.entries(skills).map(([key, skill]) => (
+              <SkillSplitButton
+                key={key}
+                id={key}
+                text={skill.text}
+                isSelected={selectedSkills.includes(key)}
+                isDisabled={champion && !selectedSkills.includes(key)}
+                onSkillToggle={onSelectSkill}
+                onDisplaySkillInfo={onDisplaySkillInfo}
+              />
+            ))}
+          </div>
         </div>
       </div>
 

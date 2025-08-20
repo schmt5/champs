@@ -26,7 +26,14 @@ export const useChampionStore = create((set, get) => ({
       champion.skills.every((skill) => selectedSkills.includes(skill))
     );
 
-    return selected || "no_champion_found";
+    return (
+      selected || {
+        name: "your-spot",
+        skills: [],
+        headline: "",
+        src: "/assets/videos/your-spot.mp4",
+      }
+    );
   },
   resetSkills: () => set({ selectedSkills: [] }),
 }));

@@ -14,7 +14,6 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
     useChampionStore();
 
   const champion = getChampion();
-  const hasChampion = champion && champion !== "no_champion_found";
 
   // State für ausgewählte Adjektive (max. 2)
   const [openBottomSheet, setOpenBottomSheet] = useState(false);
@@ -46,7 +45,7 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
   return (
     <div className="h-dvh grid grid-cols-2 gap-6">
       {/* Header */}
-      {!hasChampion ? (
+      {!champion ? (
         <div
           className="h-full bg-primary-50 flex items-center justify-center px-6"
           style={{ clipPath: "polygon(0 0, 100% 0, 90% 100%, 0 100%)" }}
@@ -62,20 +61,15 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
                 {t("choose")} <strong>{t("second")}</strong> {t("choose_skill")}
               </span>
             )}
-
-            {champion === "no_champion_found" &&
-              selectedSkills.length === 2 && (
-                <span>{t("your_spot")}</span>
-              )}
           </h1>
         </div>
       ) : (
         <div className="mx-auto grid place-content-center w-full pl-6">
           <VideoPlayer
             champion={champion}
-            src="/assets/v0-quer.mp4"
-            height={472}
-            width={840}
+            src={champion.src}
+            height={600}
+            width={480}
             onOpenChampionInfo={onOpenBottomSheet}
             isChampionInfoOpen={openBottomSheet}
           />

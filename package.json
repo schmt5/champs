@@ -13,6 +13,8 @@
     "@tailwindcss/vite": "^4.1.5",
     "animejs": "^4.0.2",
     "clsx": "^2.1.1",
+    "embla-carousel-autoplay": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
     "i": "^0.3.7",
     "motion": "^12.12.2",
     "npm": "^11.3.0",

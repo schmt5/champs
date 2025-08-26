@@ -5,6 +5,7 @@ import sleep from "../utils/sleep";
 import { ImageHero } from "./ImageHero";
 import { useLanguageStore } from "../store/languageStore";
 import { Logo } from "./Logo";
+import { Carousel } from "./ui/Carousel";
 
 const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
   const root = useRef(null);
@@ -52,7 +53,7 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
             delay: stagger(utils.random(100, 160)),
             easing: "easeInOutQuad",
           },
-          3000
+          3000,
         )
         .add({
           duration: 2000,
@@ -100,7 +101,10 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
   ));
 
   return (
-    <div ref={root} className="flex flex-col min-h-screen mx-auto max-w-5xl relative">
+    <div
+      ref={root}
+      className="flex flex-col min-h-screen mx-auto max-w-5xl relative"
+    >
       <Logo onClick={onNavigateToHome} />
       <div className="fixed right-2 top-0 flex gap-1">
         {availableLanguages.map((lang) => (
@@ -108,7 +112,7 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
             key={lang.code}
             className={cn(
               "px-4 py-6 hover:underline transition-colors",
-              currentLanguage === lang.code ? "text-primary-500 underline" : ""
+              currentLanguage === lang.code ? "text-primary-500 underline" : "",
             )}
             onClick={() => setLanguage(lang.code)}
           >
@@ -136,12 +140,12 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
               >
                 <span
                   className={cn(
-                    "absolute rounded inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-primary-500 group-hover:-translate-x-0 group-hover:-translate-y-0"
+                    "absolute rounded inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-primary-500 group-hover:-translate-x-0 group-hover:-translate-y-0",
                   )}
                 ></span>
                 <span
                   className={cn(
-                    "absolute inset-0 w-full h-full bg-white border-2 border-primary-500 rounded"
+                    "absolute inset-0 w-full h-full bg-white border-2 border-primary-500 rounded",
                   )}
                 ></span>
                 <span className="relative text-primary-500 text-2xl font-semibold">
@@ -155,12 +159,12 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
                 "cmp-start-spinner w-64 h-16 bg-white rounded border-2 border-primary-500",
                 {
                   hidden: !loading,
-                }
+                },
               )}
             />
           </div>
           <div className="mt-28 lg:mt-0">
-            <ImageHero src="/assets/c1-p.webp" alt="Portrait of a champion" />
+            <Carousel className="w-full h-full" />
           </div>
         </div>
       </div>

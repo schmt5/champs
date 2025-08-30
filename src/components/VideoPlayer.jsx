@@ -1,4 +1,4 @@
-import { animate, createScope } from "animejs";
+import { animate, createScope, createSpring } from "animejs";
 import { useRef, useState, useCallback, useEffect } from "react";
 import { LoadingSpinner } from "./LoadingSpinner";
 import { cn } from "../utils/cn";
@@ -29,9 +29,11 @@ export function VideoPlayer({
       // Register the animation method that can be called later
       self.add("playChampBarAnimation", () => {
         animate(".cmp-champ-bar", {
-          scale: [0.7, 1],
-          duration: 300,
+          scale: [0.4, 1],
+          opacity: [0, 1],
+          duration: 500,
           delay: 300,
+          ease: createSpring(),
         });
       });
 
@@ -50,18 +52,23 @@ export function VideoPlayer({
   return (
     <div ref={root} className="relative min-h-16 min-w-16 z-10">
       <div className={!canPlay ? "sr-only" : ""}>
-        <video height={height} width={width} autoPlay onCanPlay={onCanPlay} className="rounded-t-xs">
+        <video
+          height={height}
+          width={width}
+          autoPlay
+          onCanPlay={onCanPlay}
+          className="rounded-xl"
+        >
           <source src={src} type="video/mp4" />
         </video>
 
         {champion.name !== "your-spot" && (
           <div
             style={{ transform: "translateY(100%)" }}
-            className="cmp-champ-bar p-4 absolute bottom-0 left-0 right-0 border-2 border-t-0 rounded-xs border-gray-200"
+            className="cmp-champ-bar absolute bottom-0 left-0 right-0 rounded-xl"
           >
             <div className="flex flex-col items-center gap-2">
               <div>
-              
                 <p className="text-gray-900 font-medium">
                   {t(champion.headline)}
                 </p>
@@ -73,12 +80,12 @@ export function VideoPlayer({
               >
                 <span
                   className={cn(
-                    "absolute rounded inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-primary-500 group-hover:-translate-x-0 group-hover:-translate-y-0"
+                    "absolute rounded inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-primary-500 group-hover:-translate-x-0 group-hover:-translate-y-0",
                   )}
                 ></span>
                 <span
                   className={cn(
-                    "absolute inset-0 w-full h-full bg-white border-2 border-primary-500 rounded"
+                    "absolute inset-0 w-full h-full bg-white border-2 border-primary-500 rounded",
                   )}
                 ></span>
                 <span className="relative text-primary-500 text-xl font-semibold">
@@ -107,12 +114,12 @@ function OpenChampInfoButton({ onOpenChampionInfo, isChampionInfoOpen }) {
     >
       <span
         className={cn(
-          "absolute rounded inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-primary-500 group-hover:-translate-x-0 group-hover:-translate-y-0"
+          "absolute rounded inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-primary-500 group-hover:-translate-x-0 group-hover:-translate-y-0",
         )}
       ></span>
       <span
         className={cn(
-          "absolute inset-0 w-full h-full bg-white border-2 border-primary-500 rounded"
+          "absolute inset-0 w-full h-full bg-white border-2 border-primary-500 rounded",
         )}
       ></span>
       <span className="relative text-primary-500 text-xl font-semibold">

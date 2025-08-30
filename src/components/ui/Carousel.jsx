@@ -3,7 +3,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { CarouselSlide } from "./CarouselSlide";
 
 export function Carousel() {
-  const [ref] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 300000 })]);
+  const [ref] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 3000 })]);
 
   return (
     <div className="overflow-hidden" ref={ref}>

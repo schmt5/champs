@@ -21,7 +21,7 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
       startGameAnimation.current.play();
     }
 
-    await sleep(1000);
+    await sleep(1200);
     onNextPage();
   }, [onNextPage]);
 
@@ -103,15 +103,15 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
   return (
     <div
       ref={root}
-      className="flex flex-col min-h-screen mx-auto max-w-5xl relative"
+      className="flex flex-col min-h-screen mx-auto max-w-5xl 2xl:max-w-[1536px] relative"
     >
-      <Logo onClick={onNavigateToHome} />
-      <div className="fixed right-2 top-0 flex gap-1">
+      <Logo onClick={onNavigateToHome} compact />
+      <div className="px-6 flex gap-1">
         {availableLanguages.map((lang) => (
           <button
             key={lang.code}
             className={cn(
-              "px-4 py-6 hover:underline transition-colors",
+              "px-4 py-6 hover:underline transition-colors 2xl:text-xl",
               currentLanguage === lang.code ? "text-primary-500 underline" : "",
             )}
             onClick={() => setLanguage(lang.code)}
@@ -124,19 +124,21 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
       <div className="flex-1 flex pt-12">
         <div className="p-6 grid lg:grid-cols-3 place-content-center">
           <div className="lg:col-span-2 space-y-8 max-w-3xl px-4">
-            <h1 className="font-display text-5xl sm:text-7xl font-medium tracking-tight text-balance text-gray-600 lg:text-8xl mb-1">
+            <h1 className="font-display text-5xl sm:text-7xl font-medium tracking-tight text-balance text-gray-600 lg:text-8xl 2xl:text-9xl mb-1">
               {skSpans}
             </h1>
-            <h1 className="relative font-display text-5xl sm:text-7xl font-medium tracking-tight text-balance text-primary-500 lg:text-8xl">
+            <h1 className="relative font-display text-5xl sm:text-7xl font-medium tracking-tight text-balance text-primary-500 lg:text-8xl 2xl:text-9xl">
               {championsSpans}
               <span className="cmp-cursor inline-block w-1 bg-primary-500 absolute top-1 bottom-4 left-0" />
             </h1>
-            <p className="mt-12 text-gray-600 text-3xl">{t("teaser_start")}</p>
+            <p className="mt-12 text-gray-600 text-3xl 2xl:text-5xl 2xl:mb-16">
+              {t("teaser_start")}
+            </p>
 
             {!loading && (
               <button
                 onClick={handleStartGame}
-                className="cursor-pointer relative inline-block font-medium group py-4 px-12 m-0"
+                className="cursor-pointer relative inline-block font-medium group py-4 2xl:py-6 px-12 2xl:px-14 m-0"
               >
                 <span
                   className={cn(
@@ -145,10 +147,10 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
                 ></span>
                 <span
                   className={cn(
-                    "absolute inset-0 w-full h-full bg-white border-2 border-primary-500 rounded",
+                    "absolute inset-0 w-full h-full bg-white border-2 2xl:border-4 border-primary-500 rounded",
                   )}
                 ></span>
-                <span className="relative text-primary-500 text-2xl font-semibold">
+                <span className="relative text-primary-500 font-medium text-2xl 2xl:text-4xl">
                   {t("start_game")}
                 </span>
               </button>
@@ -156,7 +158,7 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
 
             <div
               className={cn(
-                "cmp-start-spinner w-64 h-16 bg-white rounded border-2 border-primary-500",
+                "cmp-start-spinner w-64 h-16 2xl:h-24 2xl:w-72 bg-white rounded border-2 2xl:border-4 border-primary-500",
                 {
                   hidden: !loading,
                 },

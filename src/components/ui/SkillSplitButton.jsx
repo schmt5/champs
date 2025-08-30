@@ -23,13 +23,13 @@ export function SkillSplitButton({
         onClick={onSkillToggle}
         disabled={isDisabled}
         className={cn(
-          "w-full p-2 rounded-l-full text-center text-lg font-medium cursor-pointer border-2 border-r-0 border-primary-500",
+          "w-full p-2 2xl:p-3 rounded-l-full text-center text-lg 2xl:text-3xl font-medium cursor-pointer border-2 2xl:border-4 border-r-0 2xl:border-r-0 border-primary-500",
           { "bg-primary-500 text-white": isSelected },
           { "bg-white text-primary-500": !isSelected },
           {
             "cursor-not-allowed opacity-70 text-gray-500 border-gray-500":
               isDisabled,
-          }
+          },
         )}
         aria-selected={isSelected}
       >
@@ -38,8 +38,8 @@ export function SkillSplitButton({
       <button
         onClick={onDisplaySkillInfo}
         className={cn(
-          "flex items-center justify-center p-2 rounded-r-full border-2 bg-white text-primary-500 w-16",
-          { "cursor-not-allowed opacity-70 text-gray-500": isDisabled }
+          "flex items-center justify-center p-2 rounded-r-full border-2 2xl:border-4 bg-white text-primary-500 w-16 2xl:w-24",
+          { "cursor-not-allowed opacity-70 text-gray-500": isDisabled },
         )}
         disabled={isDisabled}
       >
@@ -49,7 +49,7 @@ export function SkillSplitButton({
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="size-8 inline-block -translate-x-px"
+          className="size-8 2xl:size-12 inline-block -translate-x-px"
         >
           <path
             strokeLinecap="round"

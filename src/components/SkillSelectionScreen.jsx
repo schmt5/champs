@@ -50,7 +50,7 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
           className="h-full bg-primary-50 flex items-center justify-center px-6"
           style={{ clipPath: "polygon(0 0, 100% 0, 90% 100%, 0 100%)" }}
         >
-          <h1 className="font-display text-5xl text-center font-medium tracking-tight text-balance text-gray-800 max-w-xl">
+          <h1 className="font-display text-5xl 2xl:text-7xl text-center font-medium tracking-tight text-balance text-gray-800 pl-8 pr-12">
             {selectedSkills.length === 0 && (
               <span>
                 {t("choose")} <strong>{t("first")}</strong> {t("choose_skill")}
@@ -64,12 +64,10 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
           </h1>
         </div>
       ) : (
-        <div className="mx-auto grid place-content-center w-full pl-6">
+        <div className="mx-auto grid place-content-center w-full max-w-2xl pl-6">
           <VideoPlayer
             champion={champion}
             src={champion.src}
-            height={600}
-            width={480}
             onOpenChampionInfo={onOpenBottomSheet}
             isChampionInfoOpen={openBottomSheet}
           />
@@ -80,7 +78,7 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
         <Logo onNavigateToHome={onNavigateToHome} compact />
         {/* Adjektiv-Grid */}
         <div className="flex-1 flex items-center justify-center">
-          <div className="grid grid-cols-2 gap-6 w-full max-w-2xl">
+          <div className="grid grid-cols-2 gap-6 2xl:gap-8 w-full max-w-2xl 2xl:max-w-3xl">
             {Object.entries(skills).map(([key, skill]) => (
               <SkillSplitButton
                 key={key}

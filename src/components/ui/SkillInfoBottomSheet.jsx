@@ -27,17 +27,17 @@ export function SkillInfoBottomSheet({ skill, open, onClose }) {
         <Sheet.Content>
           <div ref={contentInnerRef} className="h-full w-full">
             <BottomSheetCloseButton onClose={onClose} />
-            <div className="mt-8 flex gap-6 p-4 max-w-3xl mx-auto">
+            <div className="mt-8 flex gap-6 2xl:gap-8 p-4 max-w-3xl 2xl:max-w-4xl mx-auto">
               <img
-                className="flex-1 overflow-hidden aspect-auto rounded-xs"
+                className="flex-1 overflow-hidden aspect-auto rounded-lg"
                 src={skill.src}
                 alt={skill.text}
               />
               <div className="flex-1">
-                <h1 className="font-display text-5xl font-medium tracking-tight text-gray-900">
+                <h1 className="font-display text-5xl 2xl:text-7xl font-medium tracking-tight text-gray-800">
                   {skill.text}
                 </h1>
-                <p className="text-gray-900 text-xl mt-4 font-medium">
+                <p className="text-gray-800 text-xl 2xl:text-3xl mt-4 font-medium">
                   {skill.description}
                 </p>
               </div>

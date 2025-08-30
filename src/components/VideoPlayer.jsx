@@ -65,34 +65,27 @@ export function VideoPlayer({
         {champion.name !== "your-spot" && (
           <div
             style={{ transform: "translateY(100%)" }}
-            className="cmp-champ-bar absolute bottom-0 left-0 right-0 rounded-xl"
+            className="cmp-champ-bar absolute -bottom-4 left-0 right-0 rounded-xl"
           >
-            <div className="flex flex-col items-center gap-2">
-              <div>
-                <p className="text-gray-900 font-medium">
-                  {t(champion.headline)}
-                </p>
-              </div>
-              <a
-                href="https://champions.swiss-skills.ch"
-                target="_blank"
-                className="cursor-pointer relative inline-block font-medium group py-2 px-6 m-0"
-              >
-                <span
-                  className={cn(
-                    "absolute rounded inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-primary-500 group-hover:-translate-x-0 group-hover:-translate-y-0",
-                  )}
-                ></span>
-                <span
-                  className={cn(
-                    "absolute inset-0 w-full h-full bg-white border-2 border-primary-500 rounded",
-                  )}
-                ></span>
-                <span className="relative text-primary-500 text-xl font-semibold">
-                  {t("get_inspired")}
-                </span>
-              </a>
-            </div>
+            <a
+              href="https://champions.swiss-skills.ch"
+              target="_blank"
+              className="cursor-pointer relative inline-block w-full font-medium group py-2 2xl:py-4 px-6 m-0"
+            >
+              <span
+                className={cn(
+                  "absolute rounded inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-primary-500 group-hover:-translate-x-0 group-hover:-translate-y-0",
+                )}
+              ></span>
+              <span
+                className={cn(
+                  "absolute inset-0 w-full h-full bg-white border-2 2xl:border-4 border-primary-500 rounded",
+                )}
+              ></span>
+              <span className="relative inline-block w-full text-primary-500 text-xl 2xl:text-2xl text-center 2xl:font-medium">
+                {t("get_inspired")}
+              </span>
+            </a>
           </div>
         )}
       </div>

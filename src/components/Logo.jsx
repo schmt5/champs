@@ -4,9 +4,12 @@ export function Logo({ onNavigateToHome, compact = false, background }) {
   if (compact) {
     return (
       <div
-        className={cn("fixed top-0 right-6 text-primary-500 h-28 pt-4 flex items-start justify-end", {
-          "bg-primary-50": background,
-        })}
+        className={cn(
+          "fixed top-0 right-6 2xl:top-3 2xl:right-8 text-primary-500 h-28 pt-4 flex items-start justify-end",
+          {
+            "bg-primary-50": background,
+          },
+        )}
       >
         <button
           onClick={onNavigateToHome}
@@ -14,10 +17,9 @@ export function Logo({ onNavigateToHome, compact = false, background }) {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="118px"
-            height="75px"
             xmlSpace="preserve"
             viewBox="0 0 118 75"
+            className="h-16 w-28 2xl:h-24 2xl:w-36"
           >
             <path
               fill="currentColor"
@@ -45,10 +47,9 @@ export function Logo({ onNavigateToHome, compact = false, background }) {
       <button onClick={onNavigateToHome}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="76px"
-          height="50px"
           xmlSpace="preserve"
           viewBox="0 0 118 75"
+          className="w-20 h-12"
         >
           <path
             fill="#fff"

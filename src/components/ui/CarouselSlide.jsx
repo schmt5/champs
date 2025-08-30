@@ -12,7 +12,7 @@ export function CarouselSlide({ src, alt }) {
         <div
           className="overflow-hidden rounded-xl"
           style={{
-            transform: "translateZ(40px) rotateY(-12deg)",
+            transform: "translateZ(12px) rotateY(-8deg)",
             transition: "all 0.3s ease",
           }}
         >

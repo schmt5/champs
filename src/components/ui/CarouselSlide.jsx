@@ -1,6 +1,6 @@
 export function CarouselSlide({ src, alt }) {
   return (
-    <div className="flex items-center justify-center p-4">
+    <div className="flex items-center justify-center p-6">
       <div
         className="relative transition-all duration-300"
         style={{
@@ -10,9 +10,9 @@ export function CarouselSlide({ src, alt }) {
       >
         {/* The image itself */}
         <div
-          className="overflow-hidden rounded-xl border-2 border-white"
+          className="overflow-hidden rounded-xl"
           style={{
-            transform: "translateZ(40px) rotateY(-10deg)",
+            transform: "translateZ(40px) rotateY(-12deg)",
             transition: "all 0.3s ease",
           }}
         >

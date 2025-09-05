@@ -19,7 +19,7 @@ export function CarouselSlide({ src, alt }) {
           <img
             src={src}
             alt={alt}
-            className="rounded-md transition-all duration-300 h-[360px] lg:h-auto"
+            className="rounded-xl border-2 border-white transition-all duration-300 h-[360px] lg:h-auto"
             style={{
               filter: "brightness(1.1) contrast(1.1)",
             }}

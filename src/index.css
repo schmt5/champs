@@ -1,65 +1,42 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: rgba(230, 0, 0, 0.05);
-  /* #fff2ef */
-  --color-primary-100: #fce5e5;
-  /* #ffcfc3 */
-  --color-primary-200: #f8b2b2;
-  /* #ffa996 */
-  --color-primary-300: #f37080;
-  /* #fe7e64 */
-  --color-primary-400: #ed4d4d;
-  /* #fe431b */
-  --color-primary-500: #e60000;
-  /* #dc2e01 */
-  --color-primary-600: oklch(41.44% 0.3724 17.71deg);
-  /* #b72400 */
-  --color-primary-700: oklch(33.31% 0.2997 17.68deg);
-  /* #881800 */
-  --color-primary-800: oklch(24.79% 0.2248 17.48deg);
-  /* #5a0c00 */
-  --color-primary-900: oklch(17.05% 0.1538 17.61deg);
-  /* #330400 */
+    --color-primary-50: rgba(230, 0, 0, 0.05);
+    /* #fff2ef */
+    --color-primary-100: #fce5e5;
+    /* #ffcfc3 */
+    --color-primary-200: #f8b2b2;
+    /* #ffa996 */
+    --color-primary-300: #f37080;
+    /* #fe7e64 */
+    --color-primary-400: #ed4d4d;
+    /* #fe431b */
+    --color-primary-500: #e60000;
+    /* #dc2e01 */
+    --color-primary-600: oklch(41.44% 0.3724 17.71deg);
+    /* #b72400 */
+    --color-primary-700: oklch(33.31% 0.2997 17.68deg);
+    /* #881800 */
+    --color-primary-800: oklch(24.79% 0.2248 17.48deg);
+    /* #5a0c00 */
+    --color-primary-900: oklch(17.05% 0.1538 17.61deg);
+    /* #330400 */
 }
-
-
-
-
 
 /* Apply globally */
 :root {
-  --font-family-display: 'Work Sans', sans-serif;
-  --font-family-base: 'Outfit', sans-serif;
+    --font-family-display: "Work Sans", sans-serif;
+    --font-family-base: "Outfit", sans-serif;
 }
 
 body {
-  font-family: var(--font-family-base);
-  font-optical-sizing: auto;
-  font-style: normal;
+    font-family: var(--font-family-base);
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 .font-display {
-  font-family: var(--font-family-display);
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
-progress {
-  @apply w-xl h-2 rounded-full overflow-hidden appearance-none;
-}
-
-/* For Firefox */
-progress::-moz-progress-bar {
-  @apply bg-primary-500;
-}
-
-/* For Chrome/Safari */
-progress::-webkit-progress-value {
-  @apply bg-primary-500 rounded-full;
-}
-
-/* Background for Chrome/Safari */
-progress::-webkit-progress-bar {
-  @apply bg-primary-100 rounded-full;
+    font-family: var(--font-family-display);
+    font-optical-sizing: auto;
+    font-style: normal;
 }

@@ -1,10 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { cn } from "../utils/cn";
 import { createScope, createTimeline, stagger, utils } from "animejs";
+import { cn } from "../utils/cn";
 import sleep from "../utils/sleep";
-import { ImageHero } from "./ImageHero";
 import { useLanguageStore } from "../store/languageStore";
-import { Logo } from "./Logo";
+import { Logo } from "./ui/Logo";
 import { Carousel } from "./ui/Carousel";
 
 const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
@@ -86,14 +85,7 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
     return () => scope.current.revert();
   }, []);
 
-  const sk = "SwissSkills";
   const champions = "Champions.";
-  const skSpans = sk.split("").map((char, index) => (
-    <span key={index} className="no-cmp-title-spans inline-block">
-      {char}
-    </span>
-  ));
-
   const championsSpans = champions.split("").map((char, index) => (
     <span key={index} className="cmp-title-spans inline-block">
       {char}
@@ -105,7 +97,7 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
       ref={root}
       className="flex flex-col min-h-screen mx-auto max-w-5xl 2xl:max-w-[1536px] relative"
     >
-      <Logo onClick={onNavigateToHome} compact />
+      <Logo onClick={onNavigateToHome} />
       <div className="px-6 flex gap-1">
         {availableLanguages.map((lang) => (
           <button
@@ -125,7 +117,7 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
         <div className="p-6 grid lg:grid-cols-3 place-content-center">
           <div className="lg:col-span-2 space-y-8 max-w-3xl px-4">
             <h1 className="font-display text-5xl sm:text-7xl font-medium tracking-tight text-balance text-gray-600 lg:text-8xl 2xl:text-9xl mb-1">
-              {skSpans}
+              SwissSkills
             </h1>
             <h1 className="relative font-display text-5xl sm:text-7xl font-medium tracking-tight text-balance text-primary-500 lg:text-8xl 2xl:text-9xl">
               {championsSpans}
@@ -165,7 +157,7 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
               )}
             />
           </div>
-          <div className="mt-28 lg:mt-0">
+          <div className="mt-28 lg:mt-0 lg:-translate-y-6">
             <Carousel className="w-full h-full" />
           </div>
         </div>

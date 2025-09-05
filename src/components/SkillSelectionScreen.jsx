@@ -1,22 +1,19 @@
 import { useState, useCallback } from "react";
-import { BottomSheet } from "./BottomSheet";
 import { useLanguageStore } from "../store/languageStore";
-import { VideoPlayer } from "./VideoPlayer";
+import { VideoPlayer } from "./ui/VideoPlayer";
 import { useChampionStore } from "../store/championStore";
 import { SkillSplitButton } from "./ui/SkillSplitButton";
 import { SkillInfoBottomSheet } from "./ui/SkillInfoBottomSheet";
 import { useUnmount } from "usehooks-ts";
-import { Logo } from "./Logo";
+import { Logo } from "./ui/Logo";
 
 export function SkillSelectionScreen({ onNavigateToHome }) {
-  const { t, getSkills } = useLanguageStore();
+  const { t, getSkills, currentLanguage } = useLanguageStore();
   const { selectedSkills, onSelectSkill, getChampion, resetSkills } =
     useChampionStore();
 
   const champion = getChampion();
-
-  // State für ausgewählte Adjektive (max. 2)
-  const [openBottomSheet, setOpenBottomSheet] = useState(false);
+  const skills = getSkills();
 
   const [displaySkillId, setDisplaySkillId] = useState(null);
   const onDisplaySkillInfo = useCallback((skillId) => {
@@ -26,18 +23,7 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
     setDisplaySkillId(null);
   }, []);
 
-  const skills = getSkills();
-
-  const onOpenBottomSheet = useCallback(() => {
-    setOpenBottomSheet(true);
-  }, []);
-
-  const onCloseBottomSheet = useCallback(() => {
-    setOpenBottomSheet(false);
-  }, []);
-
   useUnmount(() => {
-    setOpenBottomSheet(false);
     setDisplaySkillId(null);
     resetSkills();
   });
@@ -67,15 +53,14 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
         <div className="mx-auto grid place-content-center w-full max-w-2xl pl-6">
           <VideoPlayer
             champion={champion}
-            src={champion.src}
-            onOpenChampionInfo={onOpenBottomSheet}
-            isChampionInfoOpen={openBottomSheet}
+            src={champion.srcs[currentLanguage]}
+            onNavigateToHome={onNavigateToHome}
           />
         </div>
       )}
 
       <div className="bg-white pr-6 flex flex-col">
-        <Logo onNavigateToHome={onNavigateToHome} compact />
+        <Logo onNavigateToHome={onNavigateToHome} />
         {/* Adjektiv-Grid */}
         <div className="flex-1 flex items-center justify-center">
           <div className="grid grid-cols-2 gap-6 2xl:gap-8 w-full max-w-2xl 2xl:max-w-3xl">
@@ -93,15 +78,6 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
           </div>
         </div>
       </div>
-
-      {/* Park it here, maybe use it later */}
-      {false && (
-        <BottomSheet
-          champion={champion}
-          open={openBottomSheet}
-          onClose={onCloseBottomSheet}
-        />
-      )}
 
       <SkillInfoBottomSheet
         skill={skills[displaySkillId]}

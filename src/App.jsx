@@ -1,6 +1,5 @@
 import { useState, useCallback } from "react";
 import HomeScreen from "./components/HomeScreen";
-import { ExplainScreen } from "./components/ExplainScreen";
 import { SkillSelectionScreen } from "./components/SkillSelectionScreen";
 
 function App() {

@@ -23,15 +23,19 @@ export const useChampionStore = create((set, get) => ({
     }
 
     const selected = champions.find((champion) =>
-      champion.skills.every((skill) => selectedSkills.includes(skill))
+      champion.skills.every((skill) => selectedSkills.includes(skill)),
     );
 
     return (
       selected || {
-        name: "your-spot",
+        name: "yourspot",
         skills: [],
         headline: "",
-        src: "/assets/videos/your-spot.mp4",
+        srcs: {
+          de: "/assets/videos/yourspot-45-de.mp4",
+          fr: "/assets/videos/yourspot-45-fr.mp4",
+          it: "/assets/videos/yourspot-45-it.mp4",
+        },
       }
     );
   },

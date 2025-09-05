@@ -1,15 +1,15 @@
 import { create } from "zustand";
 import { persist, subscribeWithSelector } from "zustand/middleware";
-import { SKILLS_DE } from "../db/skills";
+import { SKILLS_DE, SKILLS_FR, SKILLS_IT } from "../db/skills";
 
 const translations = {
   de: {
     swiss_skills: "SwissSkills",
     champions: "Champions",
-    teaser_start: "Mach mit! Wähle zwei Stärken – finde deinen Champion.",
+    teaser_start: "Mach mit! Wähle zwei Stärken – finde deinen Champion!",
     teaser_end: "Entdecke noch mehr Champions – und lass dich inspirieren!",
     which_champion_are_you: "Welcher Champion bist du?",
-    start_game: "Spiel starten",
+    start_game: "Jetzt starten",
     choose_two_adjectives: "Wähle zwei Adjektive, die zu dir passen...",
     choose: "Wähle deine",
     choose_skill: "Stärke aus",
@@ -20,39 +20,38 @@ const translations = {
     first: "erste",
     second: "zweite",
     more_info: "mehr erfahren",
-    get_inspired: "Entdecke noch mehr Champions – und lass dich inspirieren!",
+    get_inspired: "Entdecke noch mehr Champions!",
     champion_headline_jeremie: "SwissSkill National Team, Mahler",
   },
   fr: {
     swiss_skills: "SwissSkills",
     champions: "Champions",
-    teaser_start:
-      "Participez ! Choisissez deux forces – trouvez votre champion.",
+    teaser_start: "Lance-toi! Choisis deux forces - trouve ton·ta champion·ne!",
     teaser_end:
       "Découvrez encore plus de champions – et laissez-vous inspirer !",
     which_champion_are_you: "Quel champion êtes-vous ?",
-    start_game: "Démarrer le jeu",
+    start_game: "Commence maintenant",
     choose_two_adjectives:
       "Choisissez deux adjectifs qui vous correspondent...",
-    choose: "Choisissez votre",
+    choose: "Choisis ta",
     choose_skill: "force",
-    first: "premier",
+    first: "première",
     second: "deuxième",
     claim_spot_leading: "Encore libre - cette place pourrait être la",
     claim_spot_strong: "tienne",
     claim_spot_trailing: "",
     your_spot: "Il manque quelqu'un comme vous ici!",
     more_info: "en savoir plus",
-    get_inspired:
-      "Découvrez encore plus de champions – et laissez-vous inspirer !",
+    get_inspired: "Découvre encore plus de champions ne s!",
   },
   it: {
     swiss_skills: "SwissSkills",
     champions: "Campioni",
-    teaser_start: "Partecipa! Scegli due forze – trova il tuo campione.",
+    teaser_start:
+      "Unisciti a noi! Scegli due punti di forza - trova il tuo o la tua campionessa!",
     teaser_end: "Scopri ancora più campioni – e lasciati ispirare!",
     which_champion_are_you: "Quale campione sei?",
-    start_game: "Inizia il gioco",
+    start_game: "Inizia ora",
     choose_two_adjectives: "Scegli due aggettivi che ti rappresentano...",
     choose: "Scegli la tua",
     choose_skill: "forza",
@@ -63,7 +62,7 @@ const translations = {
     first: "prima",
     second: "seconda",
     more_info: "maggiori informazioni",
-    get_inspired: "Scopri ancora più campioni – e lasciati ispirare!",
+    get_inspired: "Scopri ancora più campioni e campionesse!",
   },
 };
 
@@ -86,8 +85,10 @@ export const useLanguageStore = create(
         getSkills: () => {
           const { currentLanguage } = get();
 
-          if (currentLanguage === "de") {
-            return SKILLS_DE;
+          if (currentLanguage === "fr") {
+            return SKILLS_FR;
+          } else if (currentLanguage === "it") {
+            return SKILLS_IT;
           } else {
             return SKILLS_DE;
           }
@@ -97,7 +98,7 @@ export const useLanguageStore = create(
         setLanguage: (languageCode) => {
           // Validierung: Sprache muss verfügbar sein
           const isValid = availableLanguages.some(
-            (lang) => lang.code === languageCode
+            (lang) => lang.code === languageCode,
           );
           if (!isValid) {
             console.warn(`Language '${languageCode}' is not available`);
@@ -123,7 +124,7 @@ export const useLanguageStore = create(
         getCurrentLanguageInfo: () => {
           const { currentLanguage } = get();
           return availableLanguages.find(
-            (lang) => lang.code === currentLanguage
+            (lang) => lang.code === currentLanguage,
           );
         },
 
@@ -150,13 +151,13 @@ export const useLanguageStore = create(
           if (state?.currentLanguage) {
             console.log(
               "Language restored from storage:",
-              state.currentLanguage
+              state.currentLanguage,
             );
           }
         },
-      }
-    )
-  )
+      },
+    ),
+  ),
 );
 
 // Side Effect: HTML lang Attribut automatisch setzen
@@ -167,7 +168,7 @@ useLanguageStore.subscribe(
       document.documentElement.lang = currentLanguage;
       console.log("HTML lang attribute set to:", currentLanguage);
     }
-  }
+  },
 );
 
 // Initial HTML lang setzen (falls nicht durch Hydration gesetzt)

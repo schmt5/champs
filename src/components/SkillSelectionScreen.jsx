@@ -60,7 +60,7 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
         <Logo onNavigateToHome={onNavigateToHome} />
         {/* Adjektiv-Grid */}
         <div className="flex-1 flex items-center justify-center">
-          <div className="grid lg:grid-cols-2 gap-6 2xl:gap-8 w-full max-w-2xl 2xl:max-w-3xl">
+          <div className="grid sm:grid-cols-2 gap-6 2xl:gap-8 w-full max-w-2xl 2xl:max-w-3xl">
             {Object.entries(skills).map(([key, skill]) => (
               <SkillSplitButton
                 key={key}

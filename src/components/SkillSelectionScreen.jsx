@@ -29,13 +29,10 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
   });
 
   return (
-    <div className="h-dvh grid grid-cols-2 gap-6">
+    <div className="h-dvh grid lg:grid-cols-2 gap-6">
       {/* Header */}
       {!champion ? (
-        <div
-          className="h-full bg-primary-50 flex items-center justify-center px-6"
-          style={{ clipPath: "polygon(0 0, 100% 0, 90% 100%, 0 100%)" }}
-        >
+        <div className="h-full bg-primary-50 flex items-center justify-center px-6 lg:[clip-path:polygon(0_0,100%_0,90%_100%,0_100%)]">
           <h1 className="font-display text-5xl 2xl:text-7xl text-center font-medium tracking-tight text-balance text-gray-800 pl-8 pr-12">
             {selectedSkills.length === 0 && (
               <span>
@@ -59,7 +56,7 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
         </div>
       )}
 
-      <div className="bg-white pr-6 flex flex-col">
+      <div className="bg-white px-6 lg:pl-0 lg:pr-6 flex flex-col">
         <Logo onNavigateToHome={onNavigateToHome} />
         {/* Adjektiv-Grid */}
         <div className="flex-1 flex items-center justify-center">

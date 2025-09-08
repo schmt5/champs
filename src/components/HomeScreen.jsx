@@ -98,7 +98,7 @@ const HomeScreen = ({ onNextPage, onNavigateToHome }) => {
       className="flex flex-col min-h-screen mx-auto max-w-5xl 2xl:max-w-[1536px] relative"
     >
       <Logo onClick={onNavigateToHome} />
-      <div className="px-6 flex gap-1">
+      <div className="mt-12 sm:mt-0 px-6 flex gap-1">
         {availableLanguages.map((lang) => (
           <button
             key={lang.code}

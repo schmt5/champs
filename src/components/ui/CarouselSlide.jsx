@@ -1,4 +1,6 @@
-export function CarouselSlide({ src, alt }) {
+import { memo } from "react";
+
+function CarouselSlideComponent({ src, alt }) {
   return (
     <div className="flex items-center justify-center p-6">
       <div
@@ -29,3 +31,5 @@ export function CarouselSlide({ src, alt }) {
     </div>
   );
 }
+
+export const CarouselSlide = memo(CarouselSlideComponent);

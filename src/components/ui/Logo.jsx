@@ -1,4 +1,6 @@
-export function Logo({ onNavigateToHome }) {
+import { memo } from "react";
+
+function LogoComponent({ onNavigateToHome }) {
   return (
     <div className="fixed top-0 right-0">
       <button
@@ -10,3 +12,5 @@ export function Logo({ onNavigateToHome }) {
     </div>
   );
 }
+
+export const Logo = memo(LogoComponent);

@@ -33,7 +33,7 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
       {/* Header */}
       {!champion ? (
         <div className="h-full bg-primary-50 flex items-center justify-center px-6 lg:[clip-path:polygon(0_0,100%_0,90%_100%,0_100%)]">
-          <h1 className="font-display text-5xl 2xl:text-7xl text-center font-medium tracking-tight text-balance text-gray-800 pl-8 pr-12">
+          <h1 className="font-display text-4xl lg:text-5xl 2xl:text-7xl text-center font-medium tracking-tight text-balance text-gray-800 pl-8 pr-12 py-16 lg:py-0">
             {selectedSkills.length === 0 && (
               <span>
                 {t("choose")} <strong>{t("first")}</strong> {t("choose_skill")}
@@ -47,7 +47,7 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
           </h1>
         </div>
       ) : (
-        <div className="mx-auto grid place-content-center w-full max-w-2xl pl-6">
+        <div className="mx-auto grid place-content-center w-full max-w-2xl px-6 lg:pr-0 pl-6">
           <VideoPlayer
             champion={champion}
             src={champion.srcs[currentLanguage]}
@@ -60,7 +60,7 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
         <Logo onNavigateToHome={onNavigateToHome} />
         {/* Adjektiv-Grid */}
         <div className="flex-1 flex items-center justify-center">
-          <div className="grid grid-cols-2 gap-6 2xl:gap-8 w-full max-w-2xl 2xl:max-w-3xl">
+          <div className="grid lg:grid-cols-2 gap-6 2xl:gap-8 w-full max-w-2xl 2xl:max-w-3xl">
             {Object.entries(skills).map(([key, skill]) => (
               <SkillSplitButton
                 key={key}

@@ -34,10 +34,10 @@ export function SkillInfoBottomSheet({ skill, open, onClose }) {
                 alt={skill.text}
               />
               <div className="flex-1">
-                <h1 className="font-display text-5xl 2xl:text-7xl font-medium tracking-tight text-gray-800">
+                <h1 className="font-display text-4xl lg:text-5xl 2xl:text-7xl font-medium tracking-tight text-gray-800">
                   {skill.text}
                 </h1>
-                <p className="text-gray-800 text-xl 2xl:text-3xl mt-4 font-medium">
+                <p className="text-gray-800 text-lg lg:text-xl 2xl:text-3xl mt-4 font-medium">
                   {skill.description}
                 </p>
               </div>

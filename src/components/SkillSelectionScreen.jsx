@@ -49,7 +49,6 @@ export function SkillSelectionScreen({ onNavigateToHome }) {
       ) : (
         <div className="mx-auto grid place-content-center w-full max-w-2xl px-6 lg:pr-0 pl-6">
           <VideoPlayer
-            champion={champion}
             src={champion.srcs[currentLanguage]}
             onNavigateToHome={onNavigateToHome}
           />

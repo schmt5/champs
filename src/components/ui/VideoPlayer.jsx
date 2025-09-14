@@ -58,9 +58,7 @@ export function VideoPlayer({ src, onNavigateToHome }) {
           style={{ transform: "translateY(100%)" }}
           className="cmp-champ-bar absolute opacity-0 -bottom-4 left-0 right-0 rounded-xl"
         >
-          <a
-            href="https://champions.swiss-skills.ch"
-            target="_blank"
+          <button
             onClick={onNavigateToHome}
             className="cursor-pointer relative inline-block w-full font-medium group py-2 2xl:py-4 px-6 m-0"
           >
@@ -77,7 +75,7 @@ export function VideoPlayer({ src, onNavigateToHome }) {
             <span className="relative inline-block w-full text-primary-500 text-xl 2xl:text-2xl text-center 2xl:font-medium">
               {t("get_inspired")}
             </span>
-          </a>
+          </button>
         </div>
       </div>
       {!canPlay && (

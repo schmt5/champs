@@ -27,7 +27,7 @@ const translations = {
     swiss_skills: "SwissSkills",
     champions: "Champions",
     teaser_start:
-      "Lance-toi! Choisis deux forces et trouve le ou la champion·ne qui te correspond !",
+      "Lance-toi ! Choisis deux forces et trouve le ou la champion·ne qui te correspond !",
     teaser_end:
       "Découvrez encore plus de champions – et laissez-vous inspirer !",
     which_champion_are_you: "Quel champion êtes-vous ?",
